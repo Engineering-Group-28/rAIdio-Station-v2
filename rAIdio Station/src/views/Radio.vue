@@ -2,7 +2,7 @@
 </script>
 
 <template>
-    <main>
+  <main>
     <div class="banner">
     <div class="banner-text">
     <span class="open-sans-header" style="font-size: 50px;">Welcome to the rAIdio</span>

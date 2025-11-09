@@ -12,7 +12,7 @@ import {RouterView} from "vue-router"
       <ul class="nav-links">
           <li class="nav-item"><RouterLink active-class="active" to="/">Home</RouterLink></li>
           <li class="nav-item"><RouterLink active-class="active" to="/rAIdio">rAIdio</RouterLink></li>
-          <li class="nav-item"><RouterLink active-class="active" to="podcasts.html">Podcasts</RouterLink></li>
+          <li class="nav-item"><RouterLink active-class="active" to="/podcasts">Podcasts</RouterLink></li>
           <li class="nav-item"><RouterLink active-class="active" to="feedback.html">Feedback</RouterLink></li>
           <li class="nav-item"><RouterLink active-class="active" to="about.html">About</RouterLink></li>
           <li class="nav-item"><RouterLink id="loginLink" to="login.html">Login</RouterLink></li>
@@ -20,7 +20,9 @@ import {RouterView} from "vue-router"
           <li class="nav-item"><button id="logoutBtn" style="display:none;">LOGOUT</button></li>
       </ul>
     </nav>
-    <RouterView/>
+    <div class="shift">
+      <RouterView/>
+    </div>
   </main>
 </template>
 

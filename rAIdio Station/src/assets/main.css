@@ -36,15 +36,23 @@ p {
   margin: 5px 5px 5px 0px;
 }
 
+.shift {
+  margin-top: 4.5rem; /* Add a top margin to avoid content overlay */
+}
+
 /* Navbar */
 nav {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   background: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
   padding-left: 50px;
   padding-right: 10px;
   height: 4.5rem;
+  z-index: 1000;
 }
 
 .logo {
