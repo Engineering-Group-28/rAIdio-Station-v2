@@ -52,6 +52,8 @@ nav {
   padding-left: 50px;
   padding-right: 10px;
   height: 4.5rem;
+  box-shadow: 0px 2px 5px rgba(160, 161, 161, 0.5);
+  /* border-bottom: 1px solid #adadb1; */
   z-index: 1000;
 }
 
@@ -76,7 +78,7 @@ nav {
   text-decoration: none;
   color: #545455;
   font-weight: 550;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
 }
 
 .nav-item a.active {
@@ -95,4 +97,58 @@ nav {
   text-decoration: underline;
   text-decoration-thickness: 0.2em;
   text-underline-offset: 0.7em;
+}
+
+/* rAIdio and Podcasts */
+.container {
+  max-width: 1000px;
+  margin: 35px auto;
+  padding: 35px 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-column-gap: 15px;
+  grid-row-gap: 25px;
+  background-color: none;
+}
+
+.grid {
+  background-color: none;
+  color: #212123;
+  padding: 25px;
+}
+
+/* Audio Player */
+/* player {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding-left: 50px;
+  padding-right: 10px; 
+  height: 5.0rem;
+  box-shadow: 0px -2px 5px rgba(160, 161, 161, 0.5);
+  border-bottom: 1px solid #adadb1;
+  z-index: 1000;
+}
+
+.player-item {
+  display: inline-block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #545455;
+  font-weight: 550;
+  font-size: 0.9rem;
+} */
+
+.roundButton {
+  background-color: #003366;
+  height: 3.0rem;
+  width: 3.0rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  color: white;
 }

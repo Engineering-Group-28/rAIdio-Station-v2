@@ -1,4 +1,16 @@
 <script setup>
+  import { useAudioPlayerStore } from '@/stores/audioPlayer';
+  import { ref } from 'vue';
+  import { defineEmits } from 'vue';
+
+  const emit = defineEmits(['button-clicked']);
+
+  const audioPlayer = useAudioPlayerStore();
+
+  const togglePlayPause = (audioSrc) => {
+    audioPlayer.togglePlayPause(audioSrc);
+    emit('button-clicked');
+  };
 </script>
 
 <template>
@@ -17,13 +29,17 @@
           </span>
        <p>Listen to the latest trending topics from FAU Engineering</p>
   </div>
-  <div class="grid station1"></div>
+  <div class="grid station1">
+        <img src="/fullsize_td.png" class="image">
+  </div>
    <div class="grid station1content">
       <span style="font-weight: 600; font-size: 1.3rem">
         FAU Engineering
       </span>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.
+        <button @click="togglePlayPause('/FAUEngineeringRadio.mp3')" class="roundButton">
+          {{ audioPlayer.isPlaying ? '❚❚' : '▶︎' }}
+        </button>
       </p>
     </div>
   <div class="grid stations">
@@ -58,94 +74,17 @@
       Share Us
     </span> -->
   <!-- </div> -->
-  <div class="grid footer">
-    <p style="font-size: 1rem;">
-      © 2025 FAU rAIdio Station
-    </p>
-  </div>
-</div>
+        <div class="grid footer">
+          <p style="font-size: 1rem;">
+            © 2025 FAU rAIdio Station
+          </p>
+        </div>
+      </div>
+      <!--Audio Source-->
+    </main>
+</template>
   
-  
-  
-  
-  
-  
-  
-  
-  
-  <!-- Audio -->
-  <!-- <audio id="firstAudio" src="audio/FAUEngineeringRadio.mp3" preload="auto"></audio>
-  <audio id="secondAudio" src="audio/GeneralFAUNewsRadio.mp3" preload="auto"></audio>
-  <audio id="thirdAudio" src="audio/LocalNewsRadio.mp3" preload="auto"></audio> -->
-
-  <!-- Play/pause button functionality -->
-  <!-- <script>
-  const firstAudio = document.getElementById('firstAudio');
-  const playButtonOne = document.getElementById('playbutton1');
-
-  let isPlayingOne = false;
-  playButtonOne.innerHTML = '▶';
-
-    playButtonOne.addEventListener('click', function() {
-        if (isPlayingOne) {
-            firstAudio.pause();
-            playButtonOne.innerHTML = '▶';
-            playButtonOne.classList.remove('paused');
-        } else {
-            firstAudio.play();
-            playButtonOne.innerHTML = '❚❚';
-            playButtonOne.classList.add('paused');
-        }
-        isPlayingOne = !isPlayingOne;
-    });
-    </script>
-
-<script>
-    const secondAudio = document.getElementById('secondAudio');
-    const playButtonTwo = document.getElementById('playbutton2');
-     
-    let isPlayingTwo = false;
-    playButtonTwo.innerHTML = '▶';
-
-    playButtonTwo.addEventListener('click', function() {
-        if (isPlayingTwo) {
-            secondAudio.pause();
-            playButtonTwo.innerHTML = "▶";
-            playButtonTwo.classList.remove('paused');
-        } else {
-            secondAudio.play();
-            playButtonTwo.innerHTML = "❚❚";
-            playButtonTwo.classList.add('paused');
-        }
-        isPlayingTwo = !isPlayingTwo;
-    });
-</script>
-<script>
-    const thirdAudio = document.getElementById('thirdAudio');
-    const playButtonThree = document.getElementById('playbutton3');
-  
-    let isPlayingThree = false;
-    playButtonThree.innerHTML = '▶';
-        
-        playButtonThree.addEventListener('click', function() {
-        if (isPlayingThree) {
-            thirdAudio.pause();
-            playButtonThree.innerHTML = "▶";
-            playButtonThree.classList.remove('paused');
-        } else {
-            thirdAudio.play();
-            playButtonThree.innerHTML = "❚❚";
-            playButtonThree.classList.add('paused');
-        }
-        isPlayingThree = !isPlayingThree;
-    });
-  </script>
-
-
-
-
-
-
+<!--Vue Sound-->
 
   <!-- Footer
   <div class="footer">
@@ -194,8 +133,6 @@
     window.location.href = "index.html";
   });
 </script> -->
-    </main>
-</template>
 
 <style scoped>
 .banner {
@@ -215,25 +152,6 @@
   margin: 40px;
 }
 
-/* The grid for the page content */
-.container {
-  max-width: 1000px;
-  margin: 35px auto;
-  padding: 0px 50px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-column-gap: 15px;
-  grid-row-gap: 25px;
-  background-color: none;
-}
-
-.grid {
-  background-color: none;
-  color: #212123;
-  padding: 25px;
-}
-
-
 .featured {
    grid-column: 1 / 4;
    grid-row: 1 / 2;
@@ -246,13 +164,21 @@
   grid-column: 1 / 2;
   grid-row: 2 / 3;
   height: 180px;
-  background-color: white;
-  background-image:  url("/fau_engineering_withbg.png");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
+  padding: 0;
+  background-color: none;
   border-radius: 5px;
   box-shadow: 0px 0px 5px 0.5px rgba(160, 161, 161, 0.5);
+}
+
+.station1 img{
+  /* width: 99%;
+  object-fit: contain;*/
+border-radius: 5px;
+height: 100%;
+box-sizing: border-box;
+max-width: 100%;
+max-height: 100%;
+width: 100%;
 }
 
 .station1content {
