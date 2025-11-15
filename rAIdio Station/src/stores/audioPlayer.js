@@ -3,15 +3,22 @@ import { defineStore } from 'pinia';
 
 export const useAudioPlayerStore = defineStore('audioPlayer', {
   state: () => ({
-    audio: null,
-    isPlaying: false
+    audio: null, /* Holds the newly created audio object, not the file path! */
+    isPlaying: false,
+    currentTrack: null, /* Holds the actual file path (a string). */
   }),
 
   actions: {
 
     playAudio(audioSrc) {
       if (!this.audio) {
-        this.audio = new Audio(audioSrc)
+        this.audio = new Audio(audioSrc);
+        this.currentTrack = audioSrc;
+
+      } else if (this.audio && this.currentTrack !== audioSrc) {
+          this.audio.pause()
+          this.audio = new Audio(audioSrc)
+          this.currentTrack = audioSrc;
       }
       this.audio.play()
       this.isPlaying = true
@@ -23,7 +30,7 @@ export const useAudioPlayerStore = defineStore('audioPlayer', {
     },
 
     togglePlayPause(audioSrc) {
-      if (this.isPlaying && this.audio) {
+      if (this.isPlaying && this.currentTrack === audioSrc) {
         this.pauseAudio()
       } else {
         this.playAudio(audioSrc)

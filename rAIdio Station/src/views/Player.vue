@@ -2,7 +2,8 @@
     <main>
         <player class="player">
           <div class="player-item">
-            <button @click="togglePlayPause('/FAUEngineeringRadio.mp3')" class="roundButton">
+            <p>{{ audioPlayer.currentTrack }}</p>
+            <button @click="togglePlayPause(currentTrack)" class="roundButton">
               {{ audioPlayer.isPlaying ? '❚❚' : '▶︎' }}
             </button>
           </div>
@@ -11,6 +12,11 @@
 </template>
 
 <script setup>
+import { storeToRefs } from 'pinia';
+
+  const audioPlayer = useAudioPlayerStore();
+// Use storeToRefs to extract reactive properties from the store
+  const { currentTrack } = storeToRefs(audioPlayer); 
 </script>
 
 <style scoped>

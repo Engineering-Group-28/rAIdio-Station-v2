@@ -1,8 +1,11 @@
 <script setup>
   import {RouterView} from "vue-router"
   import { useAudioPlayerStore } from '@/stores/audioPlayer';
+  import { storeToRefs } from 'pinia';
 
   const audioPlayer = useAudioPlayerStore();
+  const { currentTrack } = storeToRefs(audioPlayer); 
+    
     const togglePlayPause = (audioSrc) => {
     audioPlayer.togglePlayPause(audioSrc);
   };
@@ -19,9 +22,9 @@
           <li class="nav-item"><RouterLink active-class="active" to="/">Home</RouterLink></li>
           <li class="nav-item"><RouterLink active-class="active" to="/rAIdio">rAIdio</RouterLink></li>
           <li class="nav-item"><RouterLink active-class="active" to="/podcasts">Podcasts</RouterLink></li>
-          <li class="nav-item"><RouterLink active-class="active" to="feedback.html">Feedback</RouterLink></li>
-          <li class="nav-item"><RouterLink active-class="active" to="about.html">About</RouterLink></li>
-          <li class="nav-item"><RouterLink id="loginLink" to="login.html">Login</RouterLink></li>
+          <li class="nav-item"><RouterLink active-class="active" to="/feedback">Feedback</RouterLink></li>
+          <li class="nav-item"><RouterLink active-class="active" to="/about">About</RouterLink></li>
+          <li class="nav-item"><RouterLink id="loginLink" to="/login">Login</RouterLink></li>
           <li class="nav-item"><RouterLink id="profileLink" to="profile.html" style="display:none;">Profile</RouterLink></li>
           <li class="nav-item"><button id="logoutBtn" style="display:none;">LOGOUT</button></li>
       </ul>
@@ -29,13 +32,14 @@
     <div class="shift">
       <RouterView/>
     </div>
-      <player class="player">
+      <!-- <player class="player">
         <div class="player-item">
-          <button @click="togglePlayPause('/FAUEngineeringRadio.mp3')" class="roundButton">
+          <button @click="togglePlayPause(currentTrack)" class="roundButton">
             {{ audioPlayer.isPlaying ? '❚❚' : '▶︎' }}
           </button>
+          Audio slider
         </div>
-      </player>
+      </player> -->
   </main>
 </template>
 
@@ -44,6 +48,7 @@
 player {
   display: flex;
   align-items: center;
+  flex-direction: row;
   justify-content: center;
   background: white;
   position: fixed;
