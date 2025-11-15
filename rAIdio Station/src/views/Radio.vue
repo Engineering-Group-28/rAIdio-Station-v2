@@ -31,7 +31,7 @@
   </div>
   <div class="grid station1">
     <RouterLink active-class="active" to="/engineeringradio">
-        <img src="/fullsize_td.png" class="image">
+        <img src="/engineering_radio.png" class="image">
     </RouterLink>
   </div>
    <div class="grid station2">
@@ -45,9 +45,11 @@
    </div>
   <div class="grid station3"></div>
   <div class="grid engineeringinfo">
-    <span span style="font-weight: 400; font-size: 0.95rem">
+    <RouterLink to="/engineeringradio">
+      <span span style="font-weight: 400; font-size: 0.95rem">
         FAU Engineering
-    </span>
+      </span>
+    </RouterLink>
   </div>
   <div class="grid generalinfo">
     <span span style="font-weight: 400; font-size: 0.95rem">
@@ -63,9 +65,6 @@
   <div class="grid station5"></div>
   <div class="grid station6"></div>
   <div class="grid ad_section">
-    <span class="open-sans-header" style="font-size: 1.2rem;">
-      Explore Podcasts
-  </span>
     <div class="ad"><img src="/Illustration.png"></div>
     <div class="ad"><img src="/debate_den.png"></div>
     <div class="ad"><img src="/owl_sports.png"></div>
@@ -297,8 +296,9 @@
   grid-column: 4 / 5;
   grid-row: 1 / 3;
   background-color: none;
-  padding: 1rem 0 1rem 0rem;
+  padding: 0rem 0 0rem 0rem;
   display: flex;
+  justify-content: flex-start;
   flex-wrap: wrap;
   object-fit: contain;
   row-gap: 1rem;
@@ -308,7 +308,7 @@
 
 .ad {
   width: 100%;
-  height: 85px;
+  height: 75px;
   object-fit: contain;
   background-color: none;
 }
@@ -316,7 +316,7 @@
 .ad img{
   width: 100%;
   object-fit: contain;
-  border-radius: 1.5rem;
+  border-radius: 1.0rem;
 }
   
 
