@@ -6,6 +6,7 @@ export const useAudioPlayerStore = defineStore('audioPlayer', {
     audio: null, /* Holds the newly created audio object, not the file path! */
     isPlaying: false,
     currentTrack: null, /* Holds the actual file path (a string). */
+    isComponentVisible: false /* Audio player is initially hidden */
   }),
 
   actions: {
@@ -35,6 +36,7 @@ export const useAudioPlayerStore = defineStore('audioPlayer', {
       } else {
         this.playAudio(audioSrc)
       }
+      this.isComponentVisible = true; /* Show component once button for audio is clicked */
 
     }
   }

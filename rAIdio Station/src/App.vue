@@ -32,14 +32,16 @@
     <div class="shift">
       <RouterView/>
     </div>
-      <!-- <player class="player">
-        <div class="player-item">
-          <button @click="togglePlayPause(currentTrack)" class="roundButton">
-            {{ audioPlayer.isPlaying ? '❚❚' : '▶︎' }}
-          </button>
-          Audio slider
-        </div>
-      </player> -->
+      <div v-if="audioPlayer.isComponentVisible">
+        <player class="player">
+          <div class="player-item">
+            <button @click="togglePlayPause(currentTrack)" class="roundButton">
+              {{ audioPlayer.isPlaying ? '❚❚' : '▶︎' }}
+            </button>
+            Audio slider
+          </div>
+        </player>
+      </div>
   </main>
 </template>
 
