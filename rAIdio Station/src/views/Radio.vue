@@ -25,42 +25,45 @@
 <div class="container">
   <div class="grid featured">
            <span class="open-sans-header">
-            Featured Station
+            rAIdio Stations
           </span>
-       <p>Listen to the latest trending topics from FAU Engineering</p>
+       <p style="color: #67686b;">Listen to the latest trending topics from FAU Engineering and more</p>
   </div>
   <div class="grid station1">
+    <RouterLink active-class="active" to="/engineeringradio">
         <img src="/fullsize_td.png" class="image">
+    </RouterLink>
   </div>
-   <div class="grid station1content">
-      <span style="font-weight: 600; font-size: 1.3rem">
-        FAU Engineering
-      </span>
-      <p>
-        <button @click="togglePlayPause('/FAUEngineeringRadio.mp3')" class="roundButton">
-          {{ audioPlayer.isPlaying ? '❚❚' : '▶︎' }}
-        </button>
-      </p>
-    </div>
-  <div class="grid stations">
-           <span class="open-sans-header">
-              rAIdio Stations
-           </span>
-       <p>Listen to the latest trending topics from FAU</p>
-  </div>
-  <div class="grid station2"></div>
-  <div class="grid station2content"><p>Content</p></div>
+   <div class="grid station2"></div>
   <div class="grid station3"></div>
-  <div class="grid station3content">Content</div>
+  <div class="grid engineeringinfo">
+    <span span style="font-weight: 400; font-size: 0.95rem">
+        FAU Engineering
+    </span>
+  </div>
+  <div class="grid generalinfo">
+    <span span style="font-weight: 400; font-size: 0.95rem">
+        FAU General News
+    </span>
+  </div>
+  <div class="grid academicinfo">
+    <span span style="font-weight: 400; font-size: 0.95rem">
+        FAU Academic and Campus Life
+    </span>
+  </div>
   <div class="grid station4"></div>
-  <div class="grid station4content">Music</div>
+  <div class="grid station5"></div>
+  <div class="grid station6"></div>
   <div class="grid ad_section">
+    <span class="open-sans-header" style="font-size: 1.2rem;">
+      Explore Podcasts
+  </span>
     <div class="ad"><img src="/Illustration.png"></div>
     <div class="ad"><img src="/debate_den.png"></div>
     <div class="ad"><img src="/owl_sports.png"></div>
   </div>
   <div class="grid latest">
-    <span class="open-sans-header">
+    <span class="open-sans-header" style="font-size: 1.2rem;">
       Latest News
     </span>
     <p>Placeholder</p>
@@ -163,28 +166,34 @@
 .station1 {
   grid-column: 1 / 2;
   grid-row: 2 / 3;
-  height: 180px;
+  height: 290px;
   padding: 0;
   background-color: none;
-  border-radius: 5px;
+  border-radius: 1.0rem;
   box-shadow: 0px 0px 5px 0.5px rgba(160, 161, 161, 0.5);
 }
 
 .station1 img{
   /* width: 99%;
   object-fit: contain;*/
-border-radius: 5px;
-height: 100%;
-box-sizing: border-box;
-max-width: 100%;
-max-height: 100%;
-width: 100%;
+  border-radius: 1.0rem;
+  transition: filter 0.3s ease-in-out;
+  height: 100%;
+  box-sizing: border-box;
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
 }
 
-.station1content {
-    grid-column: 2 / 4;
+
+.station1 img:hover {
+  filter: brightness(70%); /* Becomes slightly transparent on hover */
+}
+
+.station2 {
+    grid-column: 2 / 3;
     grid-row: 2 / 3;
-    height: 180px;
+    height: 290px;
     padding: 15px;
     vertical-align: middle;
     background-color: #ffffff;
@@ -192,18 +201,10 @@ width: 100%;
     border-radius: 5px;
 }
 
-.stations {
-   grid-column: 1 / 4;
-   grid-row: 3 / 4;
-   /* background-color: aqua; */
-   padding: 10px 10px 0px 10px;
-  /* border-bottom: 2px solid #E0E2E7; */
-}
-
-.station2 {
-  grid-column: 1 / 2;
-  grid-row: 4 / 5;
-  height: 180px;
+.station3 {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+  height: 290px;
   /* min-width: 200px; */
   background-color: white;
   background-image:  url("/fau_general_news.png");
@@ -214,9 +215,42 @@ width: 100%;
   box-shadow: 0px 0px 5px 0.5px rgba(160, 161, 161, 0.5);
 }
 
-.station2content {
-    grid-column: 2 / 4;
+.engineeringinfo {
+  display: flex;
+  justify-content: center;
+   grid-column: 1 / 2;
+   grid-row: 3 / 4;
+   /* background-color: aqua; */
+   padding: 0px 10px 3rem 10px;
+  /* border-bottom: 2px solid #E0E2E7; */
+}
+
+.generalinfo {
+   display: flex;
+   grid-column: 2 / 3;
+   grid-row: 3 / 4;
+    justify-content: center;
+   /* background-color: aqua; */
+   padding: 0px 10px 3rem 10px;
+  /* border-bottom: 2px solid #E0E2E7; */
+}
+
+.academicinfo {
+   display: flex;
+   grid-column: 3 / 4;
+   grid-row: 3 / 4;
+   justify-content: center;
+   /* background-color: aqua; */
+   margin-top: 0;
+   padding: 0px 10px 3rem 10px;
+  /* border-bottom: 2px solid #E0E2E7; */
+}
+
+
+.station4 {
+    grid-column: 1 / 2;
     grid-row: 4 / 5;
+    height: 290px;
     padding: 15px;
     vertical-align: middle;
     background-color: #ffffff;
@@ -224,10 +258,10 @@ width: 100%;
     border-radius: 5px;
 }
 
-.station3 {
-  grid-column: 1 / 2;
-  grid-row: 5 / 6;
-  height: 180px;
+.station5 {
+  grid-column: 2 / 3;
+  grid-row: 4 / 5;
+  height: 290px;
   background-color: white;
   background-image:  url("/local_news.png");
   background-size: contain;
@@ -237,21 +271,10 @@ width: 100%;
   box-shadow: 0px 0px 5px 0.5px rgba(160, 161, 161, 0.5);
 }
 
-.station3content {
-    grid-column: 2 / 4;
-    grid-row: 5 / 6;
-    padding: 15px;
-    vertical-align: middle;
-    height: 180px;
-    background-color: #ffffff;
-    box-shadow: 0px 0px 5px 0.5px rgba(160, 161, 161, 0.5);
-    border-radius: 5px;
-}
-
-.station4 {
-  grid-column: 1 / 2;
-  grid-row: 6 / 7;
-  height: 180px;
+.station6 {
+  grid-column: 3 / 4;
+  grid-row: 4 / 5;
+  height: 290px;
   background-color: white;
   /* background-image:  url("{{ url_for('static', filename='local_news.png') }}");
   background-size: contain;
@@ -261,16 +284,6 @@ width: 100%;
   box-shadow: 0px 0px 5px 0.5px rgba(160, 161, 161, 0.5);
 }
 
-.station4content {
-    grid-column: 2 / 4;
-    grid-row: 6 / 7;
-    padding: 15px;
-    vertical-align: middle;
-    height: 180px;
-    background-color: #ffffff;
-    box-shadow: 0px 0px 5px 0.5px rgba(160, 161, 161, 0.5);
-    border-radius: 5px;
-}
 
 .ad_section {
   grid-column: 4 / 5;
@@ -281,7 +294,6 @@ width: 100%;
   flex-wrap: wrap;
   object-fit: contain;
   row-gap: 1rem;
-  border-radius: 5px;
     /* background-color: dodgerblue; */
     /* box-shadow: 0px 0px 5px 0.5px rgba(160, 161, 161, 0.5); */
 }
@@ -290,14 +302,13 @@ width: 100%;
   width: 100%;
   height: 85px;
   object-fit: contain;
-  border-radius: 5px;
   background-color: none;
 }
 
 .ad img{
   width: 100%;
   object-fit: contain;
-  border-radius: 5px;
+  border-radius: 1.5rem;
 }
   
 
