@@ -44,30 +44,6 @@ const logout = async () => {
       </div>
 
       <ul class="nav-links">
-<<<<<<< HEAD
-          <li class="nav-item">
-            <RouterLink active-class="active" to="/">Home</RouterLink>
-          </li>
-          <li class="nav-item">
-            <RouterLink active-class="active" to="/rAIdio">rAIdio</RouterLink>
-          </li>
-          <li class="nav-item">
-            <RouterLink active-class="active" to="/podcasts">Podcasts</RouterLink></li>
-          <li class="nav-item"><RouterLink active-class="active" to="/feedback">Feedback</RouterLink>
-          </li>
-          <li class="nav-item">
-            <RouterLink active-class="active" to="/about">About</RouterLink>
-          </li>
-          <li class="nav-item">
-            <RouterLink id="loginLink" to="/login">Login</RouterLink>
-          </li>
-          <li class="nav-item">
-            <RouterLink id="profileLink" to="profile.html" style="display:none;">Profile</RouterLink>
-          </li>
-          <li class="nav-item">
-            <button id="logoutBtn" style="display:none;">LOGOUT</button>
-          </li>
-=======
         <li class="nav-item"><RouterLink active-class="active" to="/">Home</RouterLink></li>
         <li class="nav-item"><RouterLink active-class="active" to="/rAIdio">rAIdio</RouterLink></li>
         <li class="nav-item"><RouterLink active-class="active" to="/podcasts">Podcasts</RouterLink></li>
@@ -86,7 +62,6 @@ const logout = async () => {
         <li class="nav-item" v-if="user">
           <button @click="logout">LOGOUT</button>
         </li>
->>>>>>> dda770fd0ff574b14636c0643b34c0dd0602add6
       </ul>
     </nav>
 
@@ -105,18 +80,6 @@ const logout = async () => {
         </div>
       </player>
     </div>
-<<<<<<< HEAD
-      <div v-if="audioPlayer.isComponentVisible">
-        <player class="player">
-          <div class="player-item">
-            <button @click="togglePlayPause(currentTrack)" class="roundButton">
-              {{ audioPlayer.isPlaying ? '❚❚' : '▶︎' }}
-            </button>
-          </div>
-        </player>
-      </div>
-=======
->>>>>>> dda770fd0ff574b14636c0643b34c0dd0602add6
   </main>
 </template>
 
