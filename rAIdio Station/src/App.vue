@@ -1,24 +1,50 @@
 <script setup>
-  import {RouterView} from "vue-router"
-  import { useAudioPlayerStore } from '@/stores/audioPlayer';
-  import { storeToRefs } from 'pinia';
+import { RouterView, RouterLink, useRouter } from "vue-router";
+import { ref, onMounted } from "vue";
+import { supabase } from "@/lib/supabase"; // make sure you created supabase.js
 
-  const audioPlayer = useAudioPlayerStore();
-  const { currentTrack } = storeToRefs(audioPlayer); 
-    
-    const togglePlayPause = (audioSrc) => {
-    audioPlayer.togglePlayPause(audioSrc);
-  };
+import { useAudioPlayerStore } from "@/stores/audioPlayer";
+import { storeToRefs } from "pinia";
+
+const router = useRouter();
+const user = ref(null);
+
+// Audio player store
+const audioPlayer = useAudioPlayerStore();
+const { currentTrack } = storeToRefs(audioPlayer);
+
+const togglePlayPause = (audioSrc) => {
+  audioPlayer.togglePlayPause(audioSrc);
+};
+
+// Load session
+onMounted(async () => {
+  const { data } = await supabase.auth.getSession();
+  user.value = data?.session?.user || null;
+
+  // reactively update if user logs in/out
+  supabase.auth.onAuthStateChange((event, session) => {
+    user.value = session?.user || null;
+  });
+});
+
+// Logout
+const logout = async () => {
+  await supabase.auth.signOut();
+  user.value = null;
+  router.push("/login");
+};
 </script>
 
 <template>
-
   <main>
     <nav class="navbar">
       <div class="logo">
         <img src="/fau_engineering.png">
       </div>
+
       <ul class="nav-links">
+<<<<<<< HEAD
           <li class="nav-item">
             <RouterLink active-class="active" to="/">Home</RouterLink>
           </li>
@@ -41,11 +67,45 @@
           <li class="nav-item">
             <button id="logoutBtn" style="display:none;">LOGOUT</button>
           </li>
+=======
+        <li class="nav-item"><RouterLink active-class="active" to="/">Home</RouterLink></li>
+        <li class="nav-item"><RouterLink active-class="active" to="/rAIdio">rAIdio</RouterLink></li>
+        <li class="nav-item"><RouterLink active-class="active" to="/podcasts">Podcasts</RouterLink></li>
+        <li class="nav-item"><RouterLink active-class="active" to="/feedback">Feedback</RouterLink></li>
+        <li class="nav-item"><RouterLink active-class="active" to="/about">About</RouterLink></li>
+
+        <!-- Show Login when NOT logged in -->
+        <li class="nav-item" v-if="!user">
+          <RouterLink active-class="active" to="/login">Login</RouterLink>
+        </li>
+
+        <!-- Show Profile + Logout when logged in -->
+        <li class="nav-item" v-if="user">
+          <RouterLink active-class="active" to="/profile">Profile</RouterLink>
+        </li>
+        <li class="nav-item" v-if="user">
+          <button @click="logout">LOGOUT</button>
+        </li>
+>>>>>>> dda770fd0ff574b14636c0643b34c0dd0602add6
       </ul>
     </nav>
+
     <div class="shift">
-      <RouterView/>
+      <RouterView />
     </div>
+
+    <!-- Audio Player -->
+    <div v-if="audioPlayer.isComponentVisible">
+      <player class="player">
+        <div class="player-item">
+          <button @click="togglePlayPause(currentTrack)" class="roundButton">
+            {{ audioPlayer.isPlaying ? '❚❚' : '▶︎' }}
+          </button>
+          Audio slider
+        </div>
+      </player>
+    </div>
+<<<<<<< HEAD
       <div v-if="audioPlayer.isComponentVisible">
         <player class="player">
           <div class="player-item">
@@ -55,34 +115,23 @@
           </div>
         </player>
       </div>
+=======
+>>>>>>> dda770fd0ff574b14636c0643b34c0dd0602add6
   </main>
 </template>
 
 <style scoped>
-/* Audio Player */
 player {
   display: flex;
   align-items: center;
-  flex-direction: row;
   justify-content: center;
   background: white;
   position: fixed;
   bottom: 0;
   width: 100%;
-  /* padding-left: 50px;
-  padding-right: 10px; */
-  height: 5.0rem;
-  box-shadow: 0px -2px 5px rgba(160, 161, 161, 0.5);
-  /* border-bottom: 1px solid #adadb1; */
+  height: 5rem;
+  box-shadow: 0px -2px 5px rgba(160,161,161,0.5);
   z-index: 1000;
 }
-
-.player-item {
-  display: inline-block;
-  /* padding: 10px 15px;
-  text-decoration: none;
-  color: #545455;
-  font-weight: 550;
-  font-size: 0.9rem; */
-}
 </style>
+
