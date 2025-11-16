@@ -2,7 +2,7 @@ import {createRouter, createWebHistory} from "vue-router"
 import Home from "../views/Home.vue"
 import Radio from "../views/Radio.vue"
 import Podcasts from "../views/Podcasts.vue"
-import EngineeringRadio from "../views/EngineeringRadio.vue"
+import Engineering from "../views/Engineering.vue"
 import Feedback from "../views/Feedback.vue"
 import About from "../views/About.vue"
 import Login from "../views/Login.vue"
@@ -61,7 +61,7 @@ const router = createRouter({
         {
             path: "/engineeringradio",
             name: "engineeringradio",
-            component: EngineeringRadio
+            component: Engineering
         }
     ]
 })

@@ -126,3 +126,13 @@ nav {
   cursor: pointer;
   color: white;
 }
+
+.roundButtonLarge {
+  background-color: #003366;
+  height: 4rem;
+  width: 4rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  color: white;
+}

@@ -218,6 +218,7 @@ html {background-color: #FFFFFF; margin: 0; padding: 0; height: 100%;}
   justify-items: center;
   align-items: center;
   flex: 1 0 auto;
+  padding: 8em 8rem 8rem 8rem;
   margin: 0;
   background-color: #F5F7FA;
 }

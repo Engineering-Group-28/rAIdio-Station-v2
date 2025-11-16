@@ -35,13 +35,6 @@
     </RouterLink>
   </div>
    <div class="grid station2">
-       <!-- <button @click="togglePlayPause('/FAUEngineeringRadio.mp3')" class="roundButton">
-          {{ audioPlayer.isPlaying && audioPlayer.currentTrack === '/FAUEngineeringRadio.mp3' ? '❚❚' : '▶︎' }}
-        </button>
-
-          <button @click="togglePlayPause('/LocalNewsRadio.mp3')" class="roundButton">
-          {{ audioPlayer.isPlaying && audioPlayer.currentTrack === '/LocalNewsRadio.mp3' ? '❚❚' : '▶︎' }}
-        </button> -->
    </div>
   <div class="grid station3"></div>
   <div class="grid engineeringinfo">

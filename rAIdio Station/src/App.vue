@@ -19,14 +19,28 @@
         <img src="/fau_engineering.png">
       </div>
       <ul class="nav-links">
-          <li class="nav-item"><RouterLink active-class="active" to="/">Home</RouterLink></li>
-          <li class="nav-item"><RouterLink active-class="active" to="/rAIdio">rAIdio</RouterLink></li>
-          <li class="nav-item"><RouterLink active-class="active" to="/podcasts">Podcasts</RouterLink></li>
-          <li class="nav-item"><RouterLink active-class="active" to="/feedback">Feedback</RouterLink></li>
-          <li class="nav-item"><RouterLink active-class="active" to="/about">About</RouterLink></li>
-          <li class="nav-item"><RouterLink id="loginLink" to="/login">Login</RouterLink></li>
-          <li class="nav-item"><RouterLink id="profileLink" to="profile.html" style="display:none;">Profile</RouterLink></li>
-          <li class="nav-item"><button id="logoutBtn" style="display:none;">LOGOUT</button></li>
+          <li class="nav-item">
+            <RouterLink active-class="active" to="/">Home</RouterLink>
+          </li>
+          <li class="nav-item">
+            <RouterLink active-class="active" to="/rAIdio">rAIdio</RouterLink>
+          </li>
+          <li class="nav-item">
+            <RouterLink active-class="active" to="/podcasts">Podcasts</RouterLink></li>
+          <li class="nav-item"><RouterLink active-class="active" to="/feedback">Feedback</RouterLink>
+          </li>
+          <li class="nav-item">
+            <RouterLink active-class="active" to="/about">About</RouterLink>
+          </li>
+          <li class="nav-item">
+            <RouterLink id="loginLink" to="/login">Login</RouterLink>
+          </li>
+          <li class="nav-item">
+            <RouterLink id="profileLink" to="profile.html" style="display:none;">Profile</RouterLink>
+          </li>
+          <li class="nav-item">
+            <button id="logoutBtn" style="display:none;">LOGOUT</button>
+          </li>
       </ul>
     </nav>
     <div class="shift">
@@ -38,7 +52,6 @@
             <button @click="togglePlayPause(currentTrack)" class="roundButton">
               {{ audioPlayer.isPlaying ? '❚❚' : '▶︎' }}
             </button>
-            Audio slider
           </div>
         </player>
       </div>
