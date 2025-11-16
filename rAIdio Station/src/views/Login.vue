@@ -1,121 +1,105 @@
-<script></script>
+<script setup>
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+import { supabase } from "@/lib/supabase";
 
-<template>
-    <main>
-        <p style="margin:0; background-color: #F5F7FA; text-align: center;"><span class="lato-bold" style="font-size: 150%;">Login</span></p><br>
-<form id="loginForm">
-  <input type="email" id="email" placeholder="Email" required>
-  <input type="password" id="password" placeholder="Password" required>
-  <button type="submit">Login</button>
-  <button type="button" onclick="loginWithGoogle()">Login with Google</button>
-  <div class="signup-link">
-    <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
-  </div>
-</form>
-<p id="msg" style="text-align:center;"></p>
+const email = ref("");
+const password = ref("");
+const msg = ref("");
 
- <!-- Footer -->
-<div class="footer">
-  <p class="lato-regular"><span style="color: #FFFFFF;">
-    &copy; 2025 FAU Engineering rAIdio Station. All rights reserved. |
-    </span>
-    <a href="privacy.html">Privacy Policy</a></p>
-</div>
+const router = useRouter();
 
-<!-- <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>
-  const SUPABASE_URL = "https://vefipiufdaxfllfwtavs.supabase.co";
-  const SUPABASE_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZlZmlwaXVmZGF4ZmxsZnd0YXZzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTczMDAyNTQsImV4cCI6MjA3Mjg3NjI1NH0.evvilDK6acch5X3IKyWZUyiwSUtlWg1s97zOaFUKXCs";
+const login = async () => {
+  msg.value = "";
 
-  const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON, {
-    auth: {
-      persistSession: true, // Ensure session persistence
+  // 1. Clear any previous session
+  await supabase.auth.signOut();
+
+  // 2. Login request
+  const { data: loginData, error: loginError } = await supabase.auth.signInWithPassword({
+    email: email.value,
+    password: password.value,
+  });
+
+  if (loginError) {
+    msg.value = "Login failed: " + loginError.message;
+    return;
+  }
+
+  // 3. Fetch fresh session
+  const { data: sessionWrapper, error: sessionError } = await supabase.auth.getSession();
+  if (sessionError || !sessionWrapper.session) {
+    msg.value = "Error: Unable to load session.";
+    return;
+  }
+
+  const session = sessionWrapper.session;
+  const userId = session.user.id;
+
+  // 4. Load their profile (just to verify)
+  const { data: profile, error: profileError } = await supabase
+    .from("profiles")
+    .select("role")
+    .eq("id", userId)
+    .single();
+
+  if (profileError) {
+    msg.value = "Login successful but profile not found.";
+  }
+
+  // 5. ALWAYS redirect to /profile
+  msg.value = "Login successful! Redirecting to your profile…";
+
+  setTimeout(() => {
+    router.push("/profile");
+  }, 700);
+};
+
+const loginWithGoogle = async () => {
+  const { error } = await supabase.auth.signInWithOAuth({
+    provider: "google",
+    options: {
+      redirectTo: window.location.origin + "/profile", 
     },
   });
 
-  const form = document.getElementById("loginForm");
-  const msg = document.getElementById("msg");
-
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-
-    // Clear any existing session
-    await supabase.auth.signOut();
-
-    // Attempt to log in the user
-    const { data: authData, error } = await supabase.auth.signInWithPassword({ email, password });
-    if (error) {
-      msg.textContent = "Login failed: " + error.message;
-      msg.style.color = "red";
-      return;
-    }
-
-    // Force refresh the session to ensure the latest data is used
-    const { data: refreshedSession, error: refreshError } = await supabase.auth.getSession();
-    if (refreshError) {
-      console.error("Error refreshing session:", refreshError);
-      msg.textContent = "Login successful, but unable to refresh session.";
-      msg.style.color = "orange";
-      return;
-    }
-
-    const userId = refreshedSession.session.user.id; // Get the latest user ID
-    console.log("Refreshed user ID:", userId);
-
-    // Fetch the user's profile to check their role
-    const { data: profile, error: profileError } = await supabase
-      .from("profiles")
-      .select("role")
-      .eq("id", userId) // Match the logged-in user's ID
-      .single();
-
-    if (profileError) {
-      console.error("Error fetching user profile:", profileError);
-      msg.textContent = "Login successful, but unable to verify user role.";
-      msg.style.color = "orange";
-      return;
-    }
-
-    console.log("User ID:", userId); // Log the user ID
-    console.log("Fetched profile:", profile); // Log the entire profile object
-    console.log("User role:", profile.role); // Log the role specifically
-
-    // Redirect based on role
-    if (profile.role.trim().toLowerCase() === "admin") {
-      msg.textContent = "Welcome, Admin! Redirecting…";
-      msg.style.color = "green";
-      window.location.href = "feedback.html"; // Redirect to the feedback page
-    } else {
-      msg.textContent = "Login successful! Redirecting…";
-      msg.style.color = "green";
-      window.location.href = "index.html"; // Redirect to the home page
-    }
-  });
-  async function loginWithGoogle() {
-    try {
-      const { data, error } = await supabase.auth.signInWithOAuth({
-        provider: 'google',
-        options: {
-          redirectTo: 'https://raidio-fau.netlify.app/index.html' // or your landing page
-        }
-      });
-
-      if (error) {
-        console.error("Google login failed:", error.message);
-        msg.textContent = "Google login failed: " + error.message;
-        msg.style.color = "red";
-      }
-      // Supabase handles redirect automatically.
-    } catch (err) {
-      console.error("Unexpected error:", err);
-      msg.textContent = "Unexpected error during Google login.";
-      msg.style.color = "red";
-    }
+  if (error) {
+    msg.value = "Google login failed: " + error.message;
   }
-</script> -->
-    </main>
+};
+</script>
+
+
+
+<template>
+  <main>
+    <p style="margin:0; background-color: #F5F7FA; text-align:center;">
+      <span class="lato-bold" style="font-size:150%;">Login</span>
+    </p><br>
+
+    <form @submit.prevent="login" id="loginForm">
+      <input type="email" v-model="email" placeholder="Email" required>
+      <input type="password" v-model="password" placeholder="Password" required>
+
+      <button type="submit">Login</button>
+      <button type="button" @click="loginWithGoogle">Login with Google</button>
+
+      <div class="signup-link">
+        <p>Don't have an account? <router-link to="/signup">Sign Up</router-link></p>
+      </div>
+    </form>
+
+    <p id="msg" style="text-align:center; color: red;">{{ msg }}</p>
+
+    <div class="footer">
+      <p class="lato-regular">
+        <span style="color: #FFFFFF;">
+          © 2025 FAU Engineering rAIdio Station. All rights reserved. |
+        </span>
+        <router-link to="/privacy" style="color:#85B9EB">Privacy Policy</router-link>
+      </p>
+    </div>
+  </main>
 </template>
 
 <style scoped>
