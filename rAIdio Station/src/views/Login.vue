@@ -15,8 +15,8 @@ const login = async () => {
   // 1. Clear any previous session
   await supabase.auth.signOut();
 
-  // 2. Login request
-  const { data: loginData, error: loginError } = await supabase.auth.signInWithPassword({
+  // 2. Login attempt
+  const { error: loginError } = await supabase.auth.signInWithPassword({
     email: email.value,
     password: password.value,
   });
@@ -27,40 +27,47 @@ const login = async () => {
   }
 
   // 3. Fetch fresh session
-  const { data: sessionWrapper, error: sessionError } = await supabase.auth.getSession();
-  if (sessionError || !sessionWrapper.session) {
+  const { data: sessionData } = await supabase.auth.getSession();
+  const session = sessionData.session;
+
+  if (!session) {
     msg.value = "Error: Unable to load session.";
     return;
   }
 
-  const session = sessionWrapper.session;
-  const userId = session.user.id;
+  const user = session.user;
 
-  // 4. Load their profile (just to verify)
-  const { data: profile, error: profileError } = await supabase
+  /* ⭐ 4. FAU email enforcement
+  if (!user.email.toLowerCase().endsWith("@fau.edu")) {
+    await supabase.auth.signOut();
+    alert("Only @fau.edu email accounts are allowed.");
+    router.push("/login");
+    return;
+  }*/
+
+  // 5. Load profile (optional)
+  const { error: profileError } = await supabase
     .from("profiles")
     .select("role")
-    .eq("id", userId)
+    .eq("id", user.id)
     .single();
 
   if (profileError) {
-    msg.value = "Login successful but profile not found.";
+    console.warn("Profile missing:", profileError);
   }
 
-  // 5. ALWAYS redirect to /profile
-  msg.value = "Login successful! Redirecting to your profile…";
+  // 6. Redirect to profile
+  msg.value = "Login successful! Redirecting…";
 
-  setTimeout(() => {
-    router.push("/profile");
-  }, 700);
+  setTimeout(() => router.push("/profile"), 500);
 };
 
 const loginWithGoogle = async () => {
   const { error } = await supabase.auth.signInWithOAuth({
     provider: "google",
     options: {
-      redirectTo: window.location.origin + "/profile", 
-    },
+      redirectTo: window.location.origin + "/profile"
+    }
   });
 
   if (error) {
@@ -68,6 +75,7 @@ const loginWithGoogle = async () => {
   }
 };
 </script>
+
 
 
 

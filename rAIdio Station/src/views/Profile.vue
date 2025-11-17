@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
-import { supabase } from "@/lib/supabase";  // <-- make sure this exists
+import { supabase } from "@/lib/supabase";
 
 const router = useRouter();
 
@@ -13,11 +13,12 @@ const phone = ref("Loading...");
 const role = ref("Loading...");
 const msg = ref("");
 
-// Load profile
+// Load profile on page load
 onMounted(async () => {
   const { data: sessionData } = await supabase.auth.getSession();
   const session = sessionData?.session;
 
+  // ⛔ If not logged in → redirect
   if (!session) {
     router.push("/login");
     return;
@@ -26,30 +27,41 @@ onMounted(async () => {
   const user = session.user;
   email.value = user.email;
 
-  // fetch profile
+  /* ⭐ OPTIONAL: Limit login to FAU emails
+  if (!user.email.toLowerCase().endsWith("@fau.edu")) {
+    alert("Only @fau.edu accounts allowed.");
+    await supabase.auth.signOut();
+    router.push("/login");
+    return;
+  }*/
+
+  // Fetch user profile
   const { data: profile, error } = await supabase
     .from("profiles")
     .select("*")
     .eq("id", user.id)
-    .single();
+    .maybeSingle();   // <---- allows null result without error
 
-  if (error) {
-    console.error(error);
-    msg.value = "Could not load profile.";
+  // ⭐ IF PROFILE DOES NOT EXIST → redirect to complete signup
+  if (!profile) {
+    console.log("User logged in but has no profile → redirect to /signup");
+    router.push("/signup");
     return;
   }
 
+  // Fill profile values
   name.value = profile.name || "N/A";
   studentId.value = profile.student_id || "N/A";
   phone.value = profile.phone || "N/A";
   role.value = profile.role || "N/A";
 });
 
-// Go to edit page
+// Go to Edit Profile
 const editProfile = () => {
   router.push("/editprofile");
 };
 </script>
+
 
 <template>
   <main>

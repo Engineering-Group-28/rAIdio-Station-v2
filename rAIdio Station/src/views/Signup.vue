@@ -1,11 +1,10 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
-import { supabase } from "@/lib/supabase";  // your existing client
+import { supabase } from "@/lib/supabase";
 
 const router = useRouter();
 
-// Form fields
 const name = ref("");
 const studentId = ref("");
 const email = ref("");
@@ -14,7 +13,29 @@ const password = ref("");
 const formMsg = ref("");
 const msgClass = ref("");
 
-// Handle signup
+const isGoogleUser = ref(false); // TRUE when user logged in using Google
+
+onMounted(async () => {
+  // Check if there is an active session → Google/SSO user
+  const { data: sessionData } = await supabase.auth.getSession();
+  const session = sessionData?.session;
+
+  if (session) {
+    const user = session.user;
+
+    isGoogleUser.value = true;
+    email.value = user.email;
+
+    /* 🛑 FAU email enforcement
+    if (!email.value.endsWith("@fau.edu")) {
+      alert("Only @fau.edu accounts are allowed.");
+      await supabase.auth.signOut();
+      router.push("/login");
+      return;
+    }*/
+  }
+});
+
 const signup = async () => {
   formMsg.value = "";
   msgClass.value = "";
@@ -23,7 +44,7 @@ const signup = async () => {
     // 1️⃣ Check if profile already exists
     const { data: existingProfile } = await supabase
       .from("profiles")
-      .select("email")
+      .select("id")
       .eq("email", email.value)
       .maybeSingle();
 
@@ -33,7 +54,52 @@ const signup = async () => {
       return;
     }
 
-    // 2️⃣ Create user in Supabase Auth
+    let userId = null;
+
+    if (isGoogleUser.value) {
+      // 🔵 GOOGLE FLOW: User already exists in auth
+      const { data: sessionData } = await supabase.auth.getSession();
+      const session = sessionData.session;
+
+      if (!session) {
+        msgClass.value = "error";
+        formMsg.value = "Session lost. Please log in again.";
+        return;
+      }
+
+      userId = session.user.id;
+
+       if (password.value.trim().length > 0) {
+    const { error: pwError } = await supabase.auth.updateUser({
+      password: password.value,
+    });
+
+    if (pwError) {
+      msgClass.value = "error";
+      formMsg.value = "Failed to set password.";
+      return;
+    }
+  }
+
+      // Insert profile only
+      await supabase.from("profiles").insert([
+        {
+          id: userId,
+          name: name.value,
+          student_id: studentId.value,
+          email: email.value,
+          phone: phone.value,
+          role: "user",
+        },
+      ]);
+
+      msgClass.value = "success";
+      formMsg.value = "Profile created successfully!";
+      setTimeout(() => router.push("/profile"), 1000);
+      return;
+    }
+
+    // 🔵 NORMAL SIGNUP FLOW (email + password)
     const { data: authData, error: authError } = await supabase.auth.signUp({
       email: email.value,
       password: password.value,
@@ -45,28 +111,24 @@ const signup = async () => {
       return;
     }
 
-    // 3️⃣ Insert profile into profiles table
-    if (authData.user) {
-      await supabase.from("profiles").insert([
-        {
-          id: authData.user.id,
-          name: name.value,
-          student_id: studentId.value,
-          email: email.value,
-          phone: phone.value,
-          role: "user",
-        },
-      ]);
-    }
+    userId = authData.user.id;
 
-    // 4️⃣ Success
+    // Insert profile
+    await supabase.from("profiles").insert([
+      {
+        id: userId,
+        name: name.value,
+        student_id: studentId.value,
+        email: email.value,
+        phone: phone.value,
+        role: "user",
+      },
+    ]);
+
     msgClass.value = "success";
-    formMsg.value = "Signup successful! Please verify your email.";
+    formMsg.value = "Signup successful! Check your email.";
 
-    setTimeout(() => {
-      router.push("/login");
-    }, 1500);
-
+    setTimeout(() => router.push("/login"), 1500);
   } catch (err) {
     msgClass.value = "error";
     formMsg.value = "Unexpected error.";
@@ -75,32 +137,53 @@ const signup = async () => {
 };
 </script>
 
+
 <template>
   <main>
     <div class="container">
       <h1>Sign Up</h1>
 
       <form @submit.prevent="signup">
-        <label>Name:</label>
-        <input v-model="name" type="text" required />
 
-        <label>Student ID:</label>
-        <input v-model="studentId" type="text" required />
+  <label>Name:</label>
+  <input v-model="name" type="text" required />
 
-        <label>Email:</label>
-        <input v-model="email" type="email" required />
+  <label>Student ID:</label>
+  <input v-model="studentId" type="text" required />
 
-        <label>Phone:</label>
-        <input v-model="phone" type="text" />
+  <label>Email:</label>
+  <input 
+    v-model="email" 
+    type="email" 
+    :readonly="isGoogleUser"
+    required 
+  />
 
-        <label>Password:</label>
-        <input v-model="password" type="password" required />
+  <label>Phone:</label>
+  <input v-model="phone" type="text" />
 
-        <button type="submit">Sign Up</button>
+  <!-- ⭐ PASSWORD RULES:
+        - NORMAL signup → required
+        - GOOGLE signup → optional 
+  -->
+  <label>Password:</label>
+  <input
+    v-model="password"
+    type="password"
+    :required="!isGoogleUser"
+    :placeholder="isGoogleUser 
+      ? 'Optional — set a password if you want email login' 
+      : 'Create a password'"
+  />
 
-        <p :class="msgClass">{{ formMsg }}</p>
-      </form>
+  <button type="submit">
+    {{ isGoogleUser ? "Complete Signup" : "Sign Up" }}
+  </button>
+
+  <p :class="msgClass">{{ formMsg }}</p>
+</form>
     </div>
+
 
     <div class="footer">
       <p class="lato-regular">
