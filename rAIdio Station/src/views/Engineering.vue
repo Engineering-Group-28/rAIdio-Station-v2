@@ -9,6 +9,13 @@
   const togglePlayPause = (audioSrc) => {
     audioPlayer.togglePlayPause(audioSrc);
 
+const pageUrl = encodeURIComponent(window.location.href);
+const pageTitle = encodeURIComponent("🎧 Listen to FAU Engineering rAIdio!");
+
+const facebookShare = `https://facebook.com/sharer/sharer.php?u=${pageUrl}`;
+const twitterShare   = `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
+const linkedinShare  = `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`;
+
   };
 </script>
  // Make this a child component to register within parent Radio.vue
@@ -29,6 +36,11 @@
                      <button @click="togglePlayPause('/FAUEngineeringRadio_Combined.mp3')" class="button button1">
                         {{ audioPlayer.isPlaying && currentTrack == '/FAUEngineeringRadio_Combined.mp3' ? 'Pause' : 'Play' }}
                     </button>
+                    <div class="share-buttons">
+                        <a :href="facebookShare" target="_blank" class="share-btn fb">Facebook</a>
+                        <a :href="twitterShare" target="_blank" class="share-btn tw">Twitter</a>
+                        <a :href="linkedinShare" target="_blank" class="share-btn li">LinkedIn</a>
+                    </div>
                 </p>
             </div>
         </div>
@@ -166,7 +178,27 @@
     /* border-bottom: 2px solid #E0E2E7; */
     }
 
+.share-buttons {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
 
+.share-btn {
+  padding: 8px 14px;
+  border-radius: 18px;
+  text-decoration: none;
+  font-size: 14px;
+  color: white;
+}
+
+.fb { background-color: #1877F2; }
+.tw { background-color: #1DA1F2; }
+.li { background-color: #0A66C2; }
+
+.share-btn:hover {
+  opacity: 0.85;
+}
 
 
 </style>
