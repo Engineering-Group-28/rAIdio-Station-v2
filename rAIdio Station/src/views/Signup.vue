@@ -26,13 +26,13 @@ onMounted(async () => {
     isGoogleUser.value = true;
     email.value = user.email;
 
-    /* 🛑 FAU email enforcement
+    // 🛑 FAU email enforcement
     if (!email.value.endsWith("@fau.edu")) {
       alert("Only @fau.edu accounts are allowed.");
       await supabase.auth.signOut();
       router.push("/login");
       return;
-    }*/
+    }
   }
 });
 

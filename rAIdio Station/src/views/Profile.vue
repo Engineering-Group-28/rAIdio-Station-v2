@@ -27,13 +27,13 @@ onMounted(async () => {
   const user = session.user;
   email.value = user.email;
 
-  /* ⭐ OPTIONAL: Limit login to FAU emails
+  // ⭐ OPTIONAL: Limit login to FAU emails
   if (!user.email.toLowerCase().endsWith("@fau.edu")) {
     alert("Only @fau.edu accounts allowed.");
     await supabase.auth.signOut();
     router.push("/login");
     return;
-  }*/
+  }
 
   // Fetch user profile
   const { data: profile, error } = await supabase
