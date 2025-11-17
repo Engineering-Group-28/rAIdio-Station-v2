@@ -76,7 +76,6 @@ const logout = async () => {
           <button @click="togglePlayPause(currentTrack)" class="roundButton">
             {{ audioPlayer.isPlaying ? '❚❚' : '▶︎' }}
           </button>
-          Audio slider
         </div>
       </player>
     </div>
