@@ -37,13 +37,13 @@ const login = async () => {
 
   const user = session.user;
 
-  /* ⭐ 4. FAU email enforcement
+   //⭐ 4. FAU email enforcement
   if (!user.email.toLowerCase().endsWith("@fau.edu")) {
     await supabase.auth.signOut();
     alert("Only @fau.edu email accounts are allowed.");
     router.push("/login");
     return;
-  }*/
+  }
 
   // 5. Load profile (optional)
   const { error: profileError } = await supabase
