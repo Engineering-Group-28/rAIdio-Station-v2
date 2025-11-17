@@ -103,7 +103,7 @@
     </p><br>
     <p>
       <span style="font-weight: 550; font-size: 1rem">
-      The University Honors REcognition Ceremony
+      The University Honors Recognition Ceremony
     </span><br>
       Monday, November 17th
     </p>
