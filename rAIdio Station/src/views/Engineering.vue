@@ -62,7 +62,7 @@
 <style scoped>
 
     .button {
-    background-color: #003366;
+    background-color: #C6002B;
     border: none;
     width: 6rem;
     color: white;
@@ -88,7 +88,7 @@
         justify-content: flex-start;
         gap: 0.8rem;
         align-items: center;
-        background-image: linear-gradient(to bottom,#FF4949, #C9042C);
+        background: linear-gradient(to top, #002a5c 0%, #005b96 100%);
     }
 
     .infocontainer {
