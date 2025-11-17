@@ -1,7 +1,7 @@
 <script setup>
 const team = [
   { id: 0, initials: 'EM', name: 'Emmanuel Mccrimmon', role: 'Team Leader — Computer Science', bio: 'Led system architecture, AI TTS pipeline, and project coordination.' },
-  { id: 1, initials: 'JS', name: 'Julia Souza', role: 'Front-End Developer — Computer Science', bio: 'Designed the UI, responsive layout, and Supabase integration.' },
+  { id: 1, initials: 'JS', name: 'Julia Souza', role: 'Front-End Developer — Computer Science', bio: 'Website visual design and graphic artist. Built web application functionality and structure with Vue.js. Implemented global audio state logic and management.' },
   { id: 2, initials: 'DW', name: 'Dominic Wilson', role: 'System & Data Engineer — Computer Science', bio: 'Built web scrapers and data aggregation pipelines for automated content.' },
   { id: 3, initials: 'PN', name: 'Peten Nhan', role: 'Backend & Documentation Engineer — Computer Science', bio: 'Implemented Supabase user flows, feedback dashboard, and documentation.' }
 ]

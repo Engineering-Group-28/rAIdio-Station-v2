@@ -9,6 +9,7 @@ import Login from "../views/Login.vue"
 import Profile from "../views/Profile.vue"
 import EditProfile from "../views/EditProfile.vue"
 import Signup from "../views/Signup.vue"
+import Research from "../views/Research.vue"
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -62,6 +63,11 @@ const router = createRouter({
             path: "/engineeringradio",
             name: "engineeringradio",
             component: Engineering
+        },
+        {
+            path: "/research",
+            name: "research",
+            component: Research
         }
     ]
 })

@@ -1,8 +1,10 @@
 <script setup>
   import { useAudioPlayerStore } from '@/stores/audioPlayer';
-  import { ref } from 'vue';
-  import { defineEmits } from 'vue';
+  import { storeToRefs } from 'pinia';
+
   const audioPlayer = useAudioPlayerStore();
+
+  const { currentTrack } = storeToRefs(audioPlayer); 
 
   const togglePlayPause = (audioSrc) => {
     audioPlayer.togglePlayPause(audioSrc);
@@ -16,21 +18,18 @@
             <div class="infocontainer">
                 <img src="/engineering_radio.png" style="height: 15.0rem; border-radius: 0.5rem; padding-right: 0;"></img>
                 <p>
-                    <div class="itemspace">
+                    <span class="itemspace">
                     <span class="open-sans-header">
                         FAU Engineering
                     </span><br>
                     Quick updates on research and innovation from Florida Atlantic University<br>
                     Host Alloy takes us through the remarkable research being conducted at FAU.
-                    </div>
-                    <!-- <br> -->
-                     <button @click="togglePlayPause('/FAUEngineeringRadio_Combined.mp3')" class="roundButtonLarge">
-                        {{ audioPlayer.isPlaying ? '❚❚' : '▶︎' }}
+                </span>
+                    <br>
+                     <button @click="togglePlayPause('/FAUEngineeringRadio_Combined.mp3')" class="button button1">
+                        {{ audioPlayer.isPlaying && currentTrack == '/FAUEngineeringRadio_Combined.mp3' ? 'Pause' : 'Play' }}
                     </button>
                 </p>
-                 <!-- <button @click="togglePlayPause('/FAUEngineeringRadio.mp3')" class="roundButton">
-                    {{ audioPlayer.isPlaying ? '❚❚' : '▶︎' }}
-                </button> -->
             </div>
         </div>
         <div class="container">
@@ -61,6 +60,28 @@
 </template>
 
 <style scoped>
+
+    .button {
+    background-color: #003366;
+    border: none;
+    width: 6rem;
+    color: white;
+    padding: 15px 25px 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 2px;
+    cursor: pointer;
+    }
+    
+    .button1 {border-radius: 27px;}
+
+    .button1:hover {
+    background-color: #85B9EB;
+    color: white;
+    }
+
     .topbanner {
         display: flex;
         padding: 1.5rem 1.5rem 1.5rem 0rem;
@@ -90,7 +111,7 @@
     }
 
     .itemspace {
-        margin-bottom: 5px;
+        margin-bottom: 10px;
     }
 
     .morestations {

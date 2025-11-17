@@ -8,9 +8,13 @@
            <span class="open-sans-header">
             Podcast Networks
           </span>
-       <p style="color: #67686b;">TechDecoded brings you the latest in technology and innovation</p>
+       <p style="color: #67686b;">New episodes covering research, sports, entertainment, and more</p>
   </div>
-  <div class="grid podcast1"></div>
+  <div class="grid podcast1">
+    <RouterLink active-class="active" to="/research">
+        <img src="/engineering_radio.png" class="image">
+    </RouterLink>
+  </div>
   <div class="grid podcast2"></div>
   <div class="grid podcast3"></div>
   <div class="grid researchinfo">
@@ -65,9 +69,26 @@
   grid-row: 2 / 3;
   height: 290px;
   padding: 0;
-  background-color: white;
-  border-radius: 5px;
+  background-color: none;
+  border-radius: 0.7rem;
   box-shadow: 0px 0px 5px 0.5px rgba(160, 161, 161, 0.5);
+}
+
+.podcast1 img{
+  /* width: 99%;
+  object-fit: contain;*/
+  border-radius: 0.7rem;
+  transition: filter 0.3s ease-in-out;
+  height: 100%;
+  box-sizing: border-box;
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+}
+
+
+.podcast1 img:hover {
+  filter: brightness(70%); /* Becomes slightly transparent on hover */
 }
 
 .podcast2 {

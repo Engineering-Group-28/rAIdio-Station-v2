@@ -1,6 +1,5 @@
 <script setup>
   import { useAudioPlayerStore } from '@/stores/audioPlayer';
-  import { ref } from 'vue';
   import { defineEmits } from 'vue';
 
   const emit = defineEmits(['button-clicked']);
@@ -64,7 +63,7 @@
   </div>
   <div class="grid latest">
     <span class="open-sans-header" style="font-size: 1.2rem;">
-      Latest News
+      Event Schedule
     </span>
     <p>Placeholder</p>
     <p>Placeholder</p>
@@ -169,14 +168,14 @@
   height: 290px;
   padding: 0;
   background-color: none;
-  border-radius: 1.0rem;
+  border-radius: 0.65rem;
   box-shadow: 0px 0px 5px 0.5px rgba(160, 161, 161, 0.5);
 }
 
 .station1 img{
   /* width: 99%;
   object-fit: contain;*/
-  border-radius: 1.0rem;
+  border-radius: 0.65rem;
   transition: filter 0.3s ease-in-out;
   height: 100%;
   box-sizing: border-box;
@@ -309,7 +308,7 @@
 .ad img{
   width: 100%;
   object-fit: contain;
-  border-radius: 1.0rem;
+  border-radius: 0.65rem;
 }
   
 
