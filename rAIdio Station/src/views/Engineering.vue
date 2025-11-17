@@ -39,8 +39,11 @@
             </span>
           </div>
           <div class="grid stations">
-                <div class="aditem"></div>
-                <div class="aditem"></div>
+                <div class="aditem">
+                </div>
+                <div class="aditem">
+
+                </div>
                 <div class="aditem"></div>
                 <div class="aditem"></div>
             </div>
@@ -50,7 +53,8 @@
             </span>
           </div>
           <div class="grid podcasts">
-                <div class="aditem"></div>
+                <div class="aditem">
+                </div>
                 <div class="aditem"></div>
                 <div class="aditem"></div>
                 <div class="aditem"></div>
@@ -142,6 +146,17 @@
         background-color: grey;
         border-radius: 0.7rem;
     }
+    .aditem img{
+  /* width: 99%;
+  object-fit: contain;*/
+  border-radius: 0.65rem;
+  transition: filter 0.3s ease-in-out;
+  height: 100%;
+  box-sizing: border-box;
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+}
 
     .xplorepodcasts {
     display: flex;

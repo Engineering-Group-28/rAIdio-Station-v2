@@ -34,8 +34,11 @@
     </RouterLink>
   </div>
    <div class="grid station2">
+      <img src="/general_news.png" class="image">
    </div>
-  <div class="grid station3"></div>
+  <div class="grid station3">
+    <img src="/academic_campus_life.png" class="image">
+  </div>
   <div class="grid engineeringinfo">
     <RouterLink to="/engineeringradio">
       <span span style="font-weight: 400; font-size: 0.95rem">
@@ -53,23 +56,57 @@
         FAU Academic and Campus Life
     </span>
   </div>
-  <div class="grid station4"></div>
-  <div class="grid station5"></div>
-  <div class="grid station6"></div>
+  <div class="grid station4">
+    <img src="/local_news.png" class="image">
+  </div>
+  <div class="grid station5">
+    <img src="/owl_sports_2.png" class="image">
+  </div>
+  <div class="grid station6">
+    <img src="/music.png" class="image">
+  </div>
+    <div class="grid localnews">
+    <span span style="font-weight: 400; font-size: 0.95rem">
+        Local News
+    </span>
+    </div>
+      <div class="grid owlsports">
+    <span span style="font-weight: 400; font-size: 0.95rem">
+        Owl Sports
+    </span>
+    </div>
+    <div class="grid hiphop">
+    <span span style="font-weight: 400; font-size: 0.95rem">
+        Hip Hop
+    </span>
+    </div>
   <div class="grid ad_section">
     <div class="ad"><img src="/Illustration.png"></div>
     <div class="ad"><img src="/debate_den.png"></div>
     <div class="ad"><img src="/owl_sports.png"></div>
   </div>
   <div class="grid latest">
-    <span class="open-sans-header" style="font-size: 1.2rem;">
-      Event Schedule
+    <span class="open-sans-header">
+      Upcoming Events
     </span>
-    <p>Placeholder</p>
-    <p>Placeholder</p>
-    <p>Placeholder</p>
-    <p>Placeholder</p>
-    <p>Placeholder</p>
+    <p>
+      <span style="font-weight: 550; font-size: 1rem">
+      SDT VC's Kitchen Giveback
+      </span><br>
+      Monday, November 17th
+    </p><br>
+    <p>
+    <span style="font-weight: 550; font-size: 1rem">
+      Choices sessions
+    </span><br>
+      Monday, November 17th
+    </p><br>
+    <p>
+      <span style="font-weight: 550; font-size: 1rem">
+      The University Honors REcognition Ceremony
+    </span><br>
+      Monday, November 17th
+    </p>
   </div>
   <!-- <div class="grid share">
     <span class="open-sans-header">
@@ -193,25 +230,56 @@
     grid-column: 2 / 3;
     grid-row: 2 / 3;
     height: 290px;
-    padding: 15px;
+    padding: 0;
     vertical-align: middle;
     background-color: #ffffff;
     box-shadow: 0px 0px 5px 0.5px rgba(160, 161, 161, 0.5);
-    border-radius: 5px;
+    border-radius: 0.65rem;
+}
+
+.station2 img{
+  /* width: 99%;
+  object-fit: contain;*/
+  border-radius: 0.65rem;
+  transition: filter 0.3s ease-in-out;
+  height: 100%;
+  box-sizing: border-box;
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+}
+
+
+.station2 img:hover {
+  filter: brightness(70%); /* Becomes slightly transparent on hover */
 }
 
 .station3 {
   grid-column: 3 / 4;
   grid-row: 2 / 3;
   height: 290px;
+  padding: 0;
   /* min-width: 200px; */
   background-color: white;
-  background-image:  url("/fau_general_news.png");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-radius: 5px;
+  border-radius: 0.65rem;
   box-shadow: 0px 0px 5px 0.5px rgba(160, 161, 161, 0.5);
+}
+
+.station3 img{
+  /* width: 99%;
+  object-fit: contain;*/
+  border-radius: 0.65rem;
+  transition: filter 0.3s ease-in-out;
+  height: 100%;
+  box-sizing: border-box;
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+}
+
+
+.station3 img:hover {
+  filter: brightness(70%); /* Becomes slightly transparent on hover */
 }
 
 .engineeringinfo {
@@ -250,30 +318,62 @@
     grid-column: 1 / 2;
     grid-row: 4 / 5;
     height: 290px;
-    padding: 15px;
+    padding: 0;
     vertical-align: middle;
     background-color: #ffffff;
     box-shadow: 0px 0px 5px 0.5px rgba(160, 161, 161, 0.5);
     border-radius: 5px;
 }
 
+.station4 img{
+  /* width: 99%;
+  object-fit: contain;*/
+  border-radius: 0.65rem;
+  transition: filter 0.3s ease-in-out;
+  height: 100%;
+  box-sizing: border-box;
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+}
+
+
+.station4 img:hover {
+  filter: brightness(70%); /* Becomes slightly transparent on hover */
+}
+
 .station5 {
   grid-column: 2 / 3;
   grid-row: 4 / 5;
+  padding: 0;
   height: 290px;
   background-color: white;
-  background-image:  url("/local_news.png");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
   border-radius: 5px;
   box-shadow: 0px 0px 5px 0.5px rgba(160, 161, 161, 0.5);
+}
+
+.station5 img{
+  /* width: 99%;
+  object-fit: contain;*/
+  border-radius: 0.65rem;
+  transition: filter 0.3s ease-in-out;
+  height: 100%;
+  box-sizing: border-box;
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+}
+
+
+.station5 img:hover {
+  filter: brightness(70%); /* Becomes slightly transparent on hover */
 }
 
 .station6 {
   grid-column: 3 / 4;
   grid-row: 4 / 5;
   height: 290px;
+  padding: 0;
   background-color: white;
   /* background-image:  url("{{ url_for('static', filename='local_news.png') }}");
   background-size: contain;
@@ -281,6 +381,53 @@
   background-repeat: no-repeat; */
   border-radius: 5px;
   box-shadow: 0px 0px 5px 0.5px rgba(160, 161, 161, 0.5);
+}
+
+.station6 img{
+  /* width: 99%;
+  object-fit: contain;*/
+  border-radius: 0.65rem;
+  transition: filter 0.3s ease-in-out;
+  height: 100%;
+  box-sizing: border-box;
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+}
+
+
+.station6 img:hover {
+  filter: brightness(70%); /* Becomes slightly transparent on hover */
+}
+
+.localnews {
+  display: flex;
+  justify-content: center;
+   grid-column: 1 / 2;
+   grid-row: 5 / 6;
+   /* background-color: aqua; */
+   padding: 0px 10px 3rem 10px;
+  /* border-bottom: 2px solid #E0E2E7; */
+}
+
+.owlsports {
+  display: flex;
+  justify-content: center;
+   grid-column: 2 / 3;
+   grid-row: 5 / 6;
+   /* background-color: aqua; */
+   padding: 0px 10px 3rem 10px;
+  /* border-bottom: 2px solid #E0E2E7; */
+}
+
+.hiphop {
+  display: flex;
+  justify-content: center;
+   grid-column: 3 / 4;
+   grid-row: 5 / 6;
+   /* background-color: aqua; */
+   padding: 0px 10px 3rem 10px;
+  /* border-bottom: 2px solid #E0E2E7; */
 }
 
 

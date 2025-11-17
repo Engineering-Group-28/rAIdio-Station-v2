@@ -15,7 +15,7 @@
     <main>
         <div class="topbanner">
             <div class="infocontainer">
-                <img src="/engineering_radio.png" style="height: 15.0rem; border-radius: 0.5rem; padding-right: 0;"></img>
+                <img src="/research.png" style="height: 15.0rem; border-radius: 0.5rem; padding-right: 0;"></img>
                 <p>
                     <span class="itemspace">
                     <span class="open-sans-header" style="color: #dbeafe">
@@ -48,7 +48,7 @@
                         RISING RESEARCH: Episode 2<br>
                     <span style="font-size: 0.8rem; color: #67686b;">
                         Released November 16th, 2025 • 5 minutes
-                    </span><br>
+                    </span>
                     <span style="font-size: 0.9rem;">
                         From an “Art of Science” octopus selfie and FAU’s R1 spotlight, to a $1.4 million Everglades prey study and CAROSEL, a new underwater system tracking nutrient-driven water quality — today’s tour of FAU research at work.
                     </span>
@@ -64,7 +64,7 @@
                         RESEARCH RECAP: 11/08/2025 - 11/15/2025<br>
                     <span style="font-size: 0.8rem; color: #67686b;">
                         Released November 15th, 2025 • 8 minutes
-                    </span><br>
+                    </span>
                     <span style="font-size: 0.9rem;">
                         From small-group counseling that boosts sixth graders’ emotional skills, to drone-powered insights on loggerhead sea turtle nesting, quantum vs. classical machine learning for early kidney disease, FAU’s “Art of Science” competition, and Everglades wading bird conservation — this week in FAU research.
                     </span>
@@ -80,7 +80,7 @@
                         RISING RESEARCH: Episode 1<br>
                     <span style="font-size: 0.8rem; color: #67686b;">
                         Released November 15th, 2025 • 5 minutes 30 seconds
-                    </span><br>
+                    </span>
                     <span style="font-size: 0.9rem;">
                          Small-group counseling for anxious sixth graders, drone-powered insights into loggerhead sea turtle nesting, and quantum vs. classical machine learning for early chronic kidney disease detection — three breakthroughs from FAU researchers in one daily spotlight.
                     </span>
@@ -169,11 +169,23 @@
         grid-template-columns: 4rem 26rem;
         grid-column-gap: 0;
         row-gap: 0;
-        height: 11rem;
+        height: 13rem;
         width: 45rem;
         border-radius: 0.65rem;
         box-shadow: 0px 0px 5px 0.5px rgba(160, 161, 161, 0.5);
     }
+
+    .episode img{
+    /* width: 99%;
+    object-fit: contain;*/
+    border-radius: 0.65rem;
+    transition: filter 0.3s ease-in-out;
+    height: 100%;
+    box-sizing: border-box;
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+}
 
     .buttonarea {
         display: flex;

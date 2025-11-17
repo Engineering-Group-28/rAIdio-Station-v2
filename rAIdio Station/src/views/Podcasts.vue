@@ -12,11 +12,15 @@
   </div>
   <div class="grid podcast1">
     <RouterLink active-class="active" to="/research">
-        <img src="/engineering_radio.png" class="image">
+      <img src="/research.png" class="image">
     </RouterLink>
   </div>
-  <div class="grid podcast2"></div>
-  <div class="grid podcast3"></div>
+  <div class="grid podcast2">
+    <img src="/playmode.png" class="image">
+  </div>
+  <div class="grid podcast3">
+    <img src="/archive9.png" class="image">
+  </div>
   <div class="grid researchinfo">
     <span span style="font-weight: 400; font-size: 0.95rem">
         FAU Research
@@ -32,19 +36,53 @@
         Archive 9
     </span>
   </div>
-  <div class="grid podcast4"></div>
-  <div class="grid podcast5"></div>
-  <div class="grid podcast6"></div>
+  <div class="grid podcast4">
+    <img src="/techdecoded.png" class="image">
+  </div>
+  <div class="grid podcast5">
+    <img src="/debate_den_2.png" class="image">
+  </div>
+  <div class="grid podcast6">
+    <img src="/friendly_exploits.png" class="image">
+  </div>
+  <div class="techdecoded">
+    <span span style="font-weight: 400; font-size: 0.95rem">
+        TechDecoded
+    </span>
+  </div>
+    <div class="debateden">
+    <span span style="font-weight: 400; font-size: 0.95rem">
+        Debate Den
+    </span>
+  </div>
+    <div class="friendlyexploits">
+    <span span style="font-weight: 400; font-size: 0.95rem">
+        Friendly Exploits
+    </span>
+  </div>
   <div class="grid slideshow">Slideshow Placeholder</div>
   <div class="grid latest">
     <span class="open-sans-header">
-      Latest News
+      Upcoming Events
     </span>
-    <p>Placeholder</p>
-    <p>Placeholder</p>
-    <p>Placeholder</p>
-    <p>Placeholder</p>
-    <p>Placeholder</p>
+    <p>
+      <span style="font-weight: 550; font-size: 1rem">
+      Chem Club General Body Meeting
+      </span><br>
+      Monday, November 17th
+    </p><br>
+    <p>
+    <span style="font-weight: 550; font-size: 1rem">
+      TPA Star Meeting
+    </span><br>
+      Monday, November 17th
+    </p><br>
+    <p>
+      <span style="font-weight: 550; font-size: 1rem">
+      Little Bags, Big Smiles
+    </span><br>
+      Monday, November 17th
+    </p>
   </div>
   <div class="grid footer">
     <p style="font-size: 1rem;">
@@ -98,7 +136,24 @@
     padding: 0;
     background-color: #ffffff;
     box-shadow: 0px 0px 5px 0.5px rgba(160, 161, 161, 0.5);
-    border-radius: 5px;
+    border-radius: 0.65rem;
+}
+
+.podcast2 img{
+  /* width: 99%;
+  object-fit: contain;*/
+  border-radius: 0.65rem;
+  transition: filter 0.3s ease-in-out;
+  height: 100%;
+  box-sizing: border-box;
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+}
+
+
+.podcast2 img:hover {
+  filter: brightness(70%); /* Becomes slightly transparent on hover */
 }
 
 .podcast3 {
@@ -108,7 +163,24 @@
     padding: 0;
     background-color: #ffffff;
     box-shadow: 0px 0px 5px 0.5px rgba(160, 161, 161, 0.5);
-    border-radius: 5px;
+    border-radius: 0.7rem;
+}
+
+.podcast3 img{
+  /* width: 99%;
+  object-fit: contain;*/
+  border-radius: 0.7rem;
+  transition: filter 0.3s ease-in-out;
+  height: 100%;
+  box-sizing: border-box;
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+}
+
+
+.podcast3 img:hover {
+  filter: brightness(70%); /* Becomes slightly transparent on hover */
 }
 
 .researchinfo {
@@ -149,7 +221,24 @@
     padding: 0;
     background-color: #ffffff;
     box-shadow: 0px 0px 5px 0.5px rgba(160, 161, 161, 0.5);
-    border-radius: 5px;
+    border-radius: 0.65rem;
+}
+
+.podcast4 img{
+  /* width: 99%;
+  object-fit: contain;*/
+  border-radius: 0.65rem;
+  transition: filter 0.3s ease-in-out;
+  height: 100%;
+  box-sizing: border-box;
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+}
+
+
+.podcast4 img:hover {
+  filter: brightness(70%); /* Becomes slightly transparent on hover */
 }
 
 .podcast5 {
@@ -159,7 +248,24 @@
     padding: 0;
     background-color: #ffffff;
     box-shadow: 0px 0px 5px 0.5px rgba(160, 161, 161, 0.5);
-    border-radius: 5px;
+    border-radius:0.65rem;
+}
+
+.podcast5 img{
+  /* width: 99%;
+  object-fit: contain;*/
+  border-radius: 0.65rem;
+  transition: filter 0.3s ease-in-out;
+  height: 100%;
+  box-sizing: border-box;
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+}
+
+
+.podcast5 img:hover {
+  filter: brightness(70%); /* Becomes slightly transparent on hover */
 }
 
 .podcast6 {
@@ -169,7 +275,54 @@
     padding: 0;
     background-color: #ffffff;
     box-shadow: 0px 0px 5px 0.5px rgba(160, 161, 161, 0.5);
-    border-radius: 5px;
+    border-radius: 0.65rem;
+}
+
+.podcast6 img{
+  /* width: 99%;
+  object-fit: contain;*/
+  border-radius: 0.65rem;
+  transition: filter 0.3s ease-in-out;
+  height: 100%;
+  box-sizing: border-box;
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+}
+
+
+.podcast6 img:hover {
+  filter: brightness(70%); /* Becomes slightly transparent on hover */
+}
+
+.techdecoded {
+  display: flex;
+  justify-content: center;
+   grid-column: 1 / 2;
+   grid-row: 5 / 6;
+   /* background-color: aqua; */
+   padding: 0px 10px 3rem 10px;
+  /* border-bottom: 2px solid #E0E2E7; */
+}
+
+.debateden {
+  display: flex;
+  justify-content: center;
+   grid-column: 2 / 3;
+   grid-row: 5 / 6;
+   /* background-color: aqua; */
+   padding: 0px 10px 3rem 10px;
+  /* border-bottom: 2px solid #E0E2E7; */
+}
+
+.friendlyexploits {
+  display: flex;
+  justify-content: center;
+   grid-column: 3 / 4;
+   grid-row: 5 / 6;
+   /* background-color: aqua; */
+   padding: 0px 10px 3rem 10px;
+  /* border-bottom: 2px solid #E0E2E7; */
 }
 
 
