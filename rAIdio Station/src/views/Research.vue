@@ -6,10 +6,10 @@
 
   const { currentTrack } = storeToRefs(audioPlayer); 
 
-  const togglePlayPause = (audioSrc) => {
-    audioPlayer.togglePlayPause(audioSrc);
+  const togglePlayPause = (audioSrc, audioType, audioName) => {
+    audioPlayer.togglePlayPause(audioSrc, audioType, audioName);
 
-    const facebookShare = `https://facebook.com/sharer/sharer.php?u=${pageUrl}`;
+const facebookShare = `https://facebook.com/sharer/sharer.php?u=${pageUrl}`;
 const twitterShare   = `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
 const linkedinShare  = `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`;
   };
@@ -29,7 +29,7 @@ const linkedinShare  = `https://www.linkedin.com/sharing/share-offsite/?url=${pa
                     Host Alloy takes us through the remarkable research being conducted at FAU.
                 </span>
                     <br>
-                     <button @click="togglePlayPause('/ResearchScript2_11_16.mp3')" class="button button1">
+                     <button @click="togglePlayPause('/ResearchScript2_11_16.mp3', 'research', 'RISING RESEARCH: Episode 2')" class="button button1">
                         {{ audioPlayer.isPlaying  && currentTrack == '/ResearchScript2_11_16.mp3' ? 'Pause' : 'Play Recent' }}
                     </button>
                      <div class="share-buttons">
@@ -49,7 +49,7 @@ const linkedinShare  = `https://www.linkedin.com/sharing/share-offsite/?url=${pa
             <div class="grid episodescontent">
                 <div class="episode">
                     <div class="buttonarea">
-                     <button @click="togglePlayPause('/ResearchScript2_11_16.mp3')" class="roundButtonSmall">
+                     <button @click="togglePlayPause('/ResearchScript2_11_16.mp3', 'research', 'RISING RESEARCH: Episode 2')" class="roundButtonSmall">
                         {{ audioPlayer.isPlaying && currentTrack == '/ResearchScript2_11_16.mp3' ? '❚❚' : '▶︎' }}
                     </button>
                     </div>
@@ -65,7 +65,7 @@ const linkedinShare  = `https://www.linkedin.com/sharing/share-offsite/?url=${pa
                 </div>
                 <div class="episode">
                     <div class="buttonarea">
-                     <button @click="togglePlayPause('/ResearchRecap_11_08_11_15.mp3')" class="roundButtonSmall">
+                     <button @click="togglePlayPause('/ResearchRecap_11_08_11_15.mp3', 'research', 'RESEARCH RECAP: 11/08/2025 - 11/15/2025')" class="roundButtonSmall">
                         {{ audioPlayer.isPlaying && currentTrack == '/ResearchRecap_11_08_11_15.mp3' ? '❚❚' : '▶︎' }}
                      </button>
                     </div>
@@ -81,7 +81,7 @@ const linkedinShare  = `https://www.linkedin.com/sharing/share-offsite/?url=${pa
                 </div>
                 <div class="episode">
                     <div class="buttonarea">
-                     <button @click="togglePlayPause('/ResearchScript1_11_15.mp3')" class="roundButtonSmall">
+                     <button @click="togglePlayPause('/ResearchScript1_11_15.mp3', 'research', 'RISING RESEARCH: Episode 1')" class="roundButtonSmall">
                         {{ audioPlayer.isPlaying && currentTrack == '/ResearchScript1_11_15.mp3' ? '❚❚' : '▶︎' }}
                      </button>
                     </div>

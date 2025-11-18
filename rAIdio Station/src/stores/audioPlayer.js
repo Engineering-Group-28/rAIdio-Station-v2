@@ -4,8 +4,18 @@ export const useAudioPlayerStore = defineStore('audioPlayer', {
   state: () => ({
     audio: null, /* Holds the newly created audio object, not the file path! */
     isPlaying: false,
-    currentTrack: null, /* Holds the actual file path (a string). */
-    isComponentVisible: false /* Audio player is initially hidden */
+    audioName: null,
+    currentTrack: null,  /* Holds the actual file path (a string). */
+    currentTitle: null,
+    currentName: null,
+    currentType: null,
+    currentImage: null,
+    // audioType: null,
+    isComponentVisible: false,  /* Audio player is initially hidden */
+    images: {
+      engineering: '/engineering_radio.png',
+      research: '/research.png'
+    }
   }),
 
   actions: {
@@ -29,12 +39,22 @@ export const useAudioPlayerStore = defineStore('audioPlayer', {
         this.isPlaying = false;
     },
 
-    togglePlayPause(audioSrc) {
+    togglePlayPause(audioSrc, audioType, audioName) {
       if (this.isPlaying && this.currentTrack === audioSrc) {
         this.pauseAudio()
       } else {
         this.playAudio(audioSrc)
       }
+      this.currentName = audioName;
+      this.currentType = audioType;
+      if (audioType === 'engineering') {
+        this.currentTitle = 'FAU Engineering'
+        this.currentImage = this.images.engineering;
+      } else if (audioType === 'research')
+        {
+          this.currentTitle = 'FAU Research'
+          this.currentImage = this.images.research;
+        }
       this.isComponentVisible = true; /* Show component once button for audio is clicked */
 
     }
