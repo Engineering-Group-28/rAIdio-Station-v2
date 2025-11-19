@@ -36,11 +36,11 @@ const linkedinShare  = `https://www.linkedin.com/sharing/share-offsite/?url=${pa
                      <button @click="togglePlayPause('/FAUEngineeringRadio_Combined.mp3', 'engineering', 'Engineering News Radio')" class="button button1">
                         {{ audioPlayer.isPlaying && currentTrack == '/FAUEngineeringRadio_Combined.mp3' ? 'Pause' : 'Play' }}
                     </button>
-                    <!-- <div class="share-buttons">
+                    <div class="share-buttons">
                         <a :href="facebookShare" target="_blank" class="share-btn fb">Facebook</a>
                         <a :href="twitterShare" target="_blank" class="share-btn tw">Twitter</a>
                         <a :href="linkedinShare" target="_blank" class="share-btn li">LinkedIn</a>
-                    </div> -->
+                    </div>
                 </p>
             </div>
         </div>
