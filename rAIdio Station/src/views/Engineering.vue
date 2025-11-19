@@ -47,7 +47,7 @@ const linkedinShare  = `https://www.linkedin.com/sharing/share-offsite/?url=${pa
         <div class="container">
            <div class="grid morestations">
             <span class="open-sans-header">
-                More Stations
+                Upcoming Club Meetings
             </span>
           </div>
           <div class="grid stations">
@@ -61,7 +61,7 @@ const linkedinShare  = `https://www.linkedin.com/sharing/share-offsite/?url=${pa
             </div>
             <div class="grid xplorepodcasts">
             <span class="open-sans-header">
-                Explore Podcasts
+                More Stations
             </span>
           </div>
           <div class="grid podcasts">
