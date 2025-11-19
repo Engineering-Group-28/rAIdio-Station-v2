@@ -44,7 +44,7 @@ p {
 nav {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   background: white;
   position: fixed;
   top: 0;

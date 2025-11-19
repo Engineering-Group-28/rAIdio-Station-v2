@@ -34,10 +34,14 @@
     </RouterLink>
   </div>
    <div class="grid station2">
+    <RouterLink active-class="active" to="/generalnews">
       <img src="/general_news.png" class="image">
+    </RouterLink>
    </div>
   <div class="grid station3">
+    <RouterLink active-class="active" to="/academicCampusLife">
     <img src="/academic_campus_life.png" class="image">
+    </RouterLink>
   </div>
   <div class="grid engineeringinfo">
     <RouterLink to="/engineeringradio">
@@ -47,14 +51,18 @@
     </RouterLink>
   </div>
   <div class="grid generalinfo">
+    <RouterLink to="/generalnews">
     <span span style="font-weight: 400; font-size: 0.95rem">
         FAU General News
     </span>
+    </RouterLink>
   </div>
   <div class="grid academicinfo">
+    <RouterLink to="/academicCampusLife">
     <span span style="font-weight: 400; font-size: 0.95rem">
         FAU Academic and Campus Life
     </span>
+    </RouterLink>
   </div>
   <div class="grid station4">
     <img src="/local_news.png" class="image">
@@ -114,7 +122,7 @@
     </span> -->
   <!-- </div> -->
         <div class="grid footer">
-          <p style="font-size: 1rem;">
+          <p style="font-size: 0.85rem; color: #67686b;">
             © 2025 FAU rAIdio Station
           </p>
         </div>

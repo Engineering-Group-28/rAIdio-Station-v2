@@ -3,7 +3,7 @@
 
 <template>
     <main>
-        <div class="container">
+  <div class="container">
   <div class="grid featured">
            <span class="open-sans-header">
             Podcast Networks
@@ -16,20 +16,26 @@
     </RouterLink>
   </div>
   <div class="grid podcast2">
-    <img src="/playmode.png" class="image">
+    <RouterLink active-class="active" to="/playmode">
+      <img src="/playmode.png" class="image">
+    </RouterLink>
   </div>
   <div class="grid podcast3">
     <img src="/archive9.png" class="image">
   </div>
   <div class="grid researchinfo">
+    <RouterLink active-class="active" to="/research">
     <span span style="font-weight: 400; font-size: 0.95rem">
         FAU Research
     </span>
+    </RouterLink>
   </div>
   <div class="grid pminfo">
-    <span span style="font-weight: 400; font-size: 0.95rem">
-        PlayMode
-    </span>
+    <RouterLink active-class="active" to="/playmode">
+      <span span style="font-weight: 400; font-size: 0.95rem">
+          PlayMode
+      </span>
+    </RouterLink>
   </div>
   <div class="grid a9info">
     <span span style="font-weight: 400; font-size: 0.95rem">
@@ -85,7 +91,7 @@
     </p>
   </div>
   <div class="grid footer">
-    <p style="font-size: 1rem;">
+    <p style="font-size: 0.85rem; color: #67686b;">
       © 2025 FAU rAIdio Station
     </p>
   </div>
@@ -97,9 +103,7 @@
 .featured {
    grid-column: 1 / 4;
    grid-row: 1 / 2;
-   /* background-color: aqua; */
    padding: 10px 10px 0px 10px;
-  /* border-bottom: 2px solid #E0E2E7; */
 }
 
 .podcast1 {
@@ -112,7 +116,7 @@
   box-shadow: 0px 0px 5px 0.5px rgba(160, 161, 161, 0.5);
 }
 
-.podcast1 img{
+.container img{
   /* width: 99%;
   object-fit: contain;*/
   border-radius: 0.7rem;
@@ -125,8 +129,8 @@
 }
 
 
-.podcast1 img:hover {
-  filter: brightness(70%); /* Becomes slightly transparent on hover */
+.container img:hover {
+  filter: brightness(70%);
 }
 
 .podcast2 {
@@ -139,23 +143,6 @@
     border-radius: 0.65rem;
 }
 
-.podcast2 img{
-  /* width: 99%;
-  object-fit: contain;*/
-  border-radius: 0.65rem;
-  transition: filter 0.3s ease-in-out;
-  height: 100%;
-  box-sizing: border-box;
-  max-width: 100%;
-  max-height: 100%;
-  width: 100%;
-}
-
-
-.podcast2 img:hover {
-  filter: brightness(70%); /* Becomes slightly transparent on hover */
-}
-
 .podcast3 {
     grid-column: 3 / 4;
     grid-row: 2 / 3;
@@ -164,23 +151,6 @@
     background-color: #ffffff;
     box-shadow: 0px 0px 5px 0.5px rgba(160, 161, 161, 0.5);
     border-radius: 0.7rem;
-}
-
-.podcast3 img{
-  /* width: 99%;
-  object-fit: contain;*/
-  border-radius: 0.7rem;
-  transition: filter 0.3s ease-in-out;
-  height: 100%;
-  box-sizing: border-box;
-  max-width: 100%;
-  max-height: 100%;
-  width: 100%;
-}
-
-
-.podcast3 img:hover {
-  filter: brightness(70%); /* Becomes slightly transparent on hover */
 }
 
 .researchinfo {
@@ -224,23 +194,6 @@
     border-radius: 0.65rem;
 }
 
-.podcast4 img{
-  /* width: 99%;
-  object-fit: contain;*/
-  border-radius: 0.65rem;
-  transition: filter 0.3s ease-in-out;
-  height: 100%;
-  box-sizing: border-box;
-  max-width: 100%;
-  max-height: 100%;
-  width: 100%;
-}
-
-
-.podcast4 img:hover {
-  filter: brightness(70%); /* Becomes slightly transparent on hover */
-}
-
 .podcast5 {
     grid-column: 2 / 3;
     grid-row: 4 / 5;
@@ -251,23 +204,6 @@
     border-radius:0.65rem;
 }
 
-.podcast5 img{
-  /* width: 99%;
-  object-fit: contain;*/
-  border-radius: 0.65rem;
-  transition: filter 0.3s ease-in-out;
-  height: 100%;
-  box-sizing: border-box;
-  max-width: 100%;
-  max-height: 100%;
-  width: 100%;
-}
-
-
-.podcast5 img:hover {
-  filter: brightness(70%); /* Becomes slightly transparent on hover */
-}
-
 .podcast6 {
     grid-column: 3 /4;
     grid-row: 4 / 5;
@@ -276,23 +212,6 @@
     background-color: #ffffff;
     box-shadow: 0px 0px 5px 0.5px rgba(160, 161, 161, 0.5);
     border-radius: 0.65rem;
-}
-
-.podcast6 img{
-  /* width: 99%;
-  object-fit: contain;*/
-  border-radius: 0.65rem;
-  transition: filter 0.3s ease-in-out;
-  height: 100%;
-  box-sizing: border-box;
-  max-width: 100%;
-  max-height: 100%;
-  width: 100%;
-}
-
-
-.podcast6 img:hover {
-  filter: brightness(70%); /* Becomes slightly transparent on hover */
 }
 
 .techdecoded {

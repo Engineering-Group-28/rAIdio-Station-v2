@@ -19,11 +19,11 @@ const linkedinShare  = `https://www.linkedin.com/sharing/share-offsite/?url=${pa
     <main>
         <div class="topbanner">
             <div class="infocontainer">
-                <img src="/research.png" style="height: 15.0rem; border-radius: 0.5rem; padding-right: 0;"></img>
+                <img src="/playmode.png" style="height: 15.0rem; border-radius: 0.5rem; padding-right: 0;"></img>
                 <p>
                     <span class="itemspace">
                     <span class="open-sans-header" style="color: #dbeafe">
-                        FAU Research
+                        PlayMode
                     </span><br>
                     Quick updates on research and innovation from Florida Atlantic University<br>
                     Host Alloy takes us through the remarkable research being conducted at FAU.

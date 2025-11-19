@@ -10,6 +10,9 @@ import Profile from "../views/Profile.vue"
 import EditProfile from "../views/EditProfile.vue"
 import Signup from "../views/Signup.vue"
 import Research from "../views/Research.vue"
+import GeneralNews from "../views/GeneralNews.vue"
+import AcademicCampusLife from "../views/AcademicCampusLife.vue"
+import PlayMode from "../views/PlayMode.vue"
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -65,9 +68,24 @@ const router = createRouter({
             component: Engineering
         },
         {
+            path: "/generalnews",
+            name: "generalnews",
+            component: GeneralNews
+        },
+        {
+            path: "/academicCampusLife",
+            name: "academicCampusLife",
+            component: AcademicCampusLife
+        },
+        {
             path: "/research",
             name: "research",
             component: Research
+        },
+        {
+            path: "/playmode",
+            name: "playmode",
+            component: PlayMode
         }
     ]
 })

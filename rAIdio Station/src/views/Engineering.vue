@@ -66,11 +66,19 @@ const linkedinShare  = `https://www.linkedin.com/sharing/share-offsite/?url=${pa
           </div>
           <div class="grid podcasts">
                 <div class="aditem">
+                    <RouterLink active-class="active" to="/generalnews">
+                        <img src="/general_news_banner.png">
+                    </RouterLink>
                 </div>
                 <div class="aditem"></div>
                 <div class="aditem"></div>
                 <div class="aditem"></div>
-          </div>
+            </div>
+            <div class="grid footer">
+                <p style="font-size: 0.85rem; color: #67686b;">
+                    © 2025 FAU Engineering rAIdio Station
+                </p>
+            </div>
         </div>
     </main>
 </template>
@@ -153,11 +161,12 @@ const linkedinShare  = `https://www.linkedin.com/sharing/share-offsite/?url=${pa
     }
 
     .aditem {
-        height: 8rem;
+        height: 10rem;
         width: 15rem;
         background-color: grey;
         border-radius: 0.7rem;
     }
+
     .aditem img{
   /* width: 99%;
   object-fit: contain;*/
@@ -169,6 +178,11 @@ const linkedinShare  = `https://www.linkedin.com/sharing/share-offsite/?url=${pa
   max-height: 100%;
   width: 100%;
 }
+
+.aditem img:hover {
+  filter: brightness(70%); /* Becomes slightly transparent on hover */
+}
+
 
     .xplorepodcasts {
     display: flex;
@@ -192,6 +206,12 @@ const linkedinShare  = `https://www.linkedin.com/sharing/share-offsite/?url=${pa
     padding: 0px 0px 0rem 0px;
     /* border-bottom: 2px solid #E0E2E7; */
     }
+
+.footer {
+  grid-column: 1 / 5;
+  grid-row: 5 / 6;
+  border-top: 2px solid #E0E2E7;
+}
 
 .share-buttons {
   margin-top: 10px;
