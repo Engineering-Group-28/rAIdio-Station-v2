@@ -89,7 +89,11 @@
     </span>
     </div>
   <div class="grid ad_section">
-    <div class="ad"><img src="/Illustration.png"></div>
+      <div class="ad">
+        <RouterLink to="/research">
+          <img src="/research_ad.png">
+      </RouterLink>
+      </div>
     <div class="ad"><img src="/debate_den.png"></div>
     <div class="ad"><img src="/owl_sports.png"></div>
   </div>
@@ -207,6 +211,10 @@
   /* border-bottom: 2px solid #E0E2E7; */
 }
 
+.container img:hover {
+  filter: brightness(70%);
+}
+
 .station1 {
   grid-column: 1 / 2;
   grid-row: 2 / 3;
@@ -227,11 +235,6 @@
   max-width: 100%;
   max-height: 100%;
   width: 100%;
-}
-
-
-.station1 img:hover {
-  filter: brightness(70%); /* Becomes slightly transparent on hover */
 }
 
 .station2 {
@@ -257,11 +260,6 @@
   width: 100%;
 }
 
-
-.station2 img:hover {
-  filter: brightness(70%); /* Becomes slightly transparent on hover */
-}
-
 .station3 {
   grid-column: 3 / 4;
   grid-row: 2 / 3;
@@ -283,11 +281,6 @@
   max-width: 100%;
   max-height: 100%;
   width: 100%;
-}
-
-
-.station3 img:hover {
-  filter: brightness(70%); /* Becomes slightly transparent on hover */
 }
 
 .engineeringinfo {
@@ -345,11 +338,6 @@
   width: 100%;
 }
 
-
-.station4 img:hover {
-  filter: brightness(70%); /* Becomes slightly transparent on hover */
-}
-
 .station5 {
   grid-column: 2 / 3;
   grid-row: 4 / 5;
@@ -370,11 +358,6 @@
   max-width: 100%;
   max-height: 100%;
   width: 100%;
-}
-
-
-.station5 img:hover {
-  filter: brightness(70%); /* Becomes slightly transparent on hover */
 }
 
 .station6 {
@@ -401,11 +384,6 @@
   max-width: 100%;
   max-height: 100%;
   width: 100%;
-}
-
-
-.station6 img:hover {
-  filter: brightness(70%); /* Becomes slightly transparent on hover */
 }
 
 .localnews {
@@ -464,9 +442,9 @@
   width: 100%;
   object-fit: contain;
   border-radius: 0.65rem;
+  transition: filter 0.3s ease-in-out;
 }
   
-
 .latest {
     grid-column: 4 / 5;
     grid-row: 3 / 5;
