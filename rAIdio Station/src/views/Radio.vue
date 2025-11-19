@@ -123,56 +123,6 @@
     </main>
 </template>
   
-<!--Vue Sound-->
-
-  <!-- Footer
-  <div class="footer">
-    <p class="lato-regular"><span style="color: #FFFFFF;">
-      &copy; 2025 FAU Engineering rAIdio Station. All rights reserved. |
-      </span>
-      <a href="privacy.html">Privacy Policy</a></p>
-  </div> -->
-
-
-<!-- <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>
-  const SUPABASE_URL = "https://vefipiufdaxfllfwtavs.supabase.co";
-  const SUPABASE_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZlZmlwaXVmZGF4ZmxsZnd0YXZzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTczMDAyNTQsImV4cCI6MjA3Mjg3NjI1NH0.evvilDK6acch5X3IKyWZUyiwSUtlWg1s97zOaFUKXCs";
-
-  const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON, {
-  auth: {
-    persistSession: true, // Ensure session persistence
-  },
-});
-
-  const loginLink = document.getElementById("loginLink");
-  const logoutBtn = document.getElementById("logoutBtn");
- const profileLink = document.getElementById("profileLink");
-
-  (async () => {
-    const { data: { session } } = await supabase.auth.getSession();
-
-    if (session) {
-      // User is logged in → show profile + logout
-      loginLink.style.display   = "none";
-      logoutBtn.style.display   = "inline-block";
-      profileLink.style.display = "inline-block";
-    } else {
-      // Not logged in → only show login
-      loginLink.style.display   = "inline-block";
-      logoutBtn.style.display   = "none";
-      profileLink.style.display = "none";
-    }
-  })();
-
-  // Logout handler
-  logoutBtn.addEventListener("click", async () => {
-    await supabase.auth.signOut();
-    localStorage.removeItem("role"); // clear demo admin flag if you used it
-    window.location.href = "index.html";
-  });
-</script> -->
-
 <style scoped>
 .banner {
   display: flex;
