@@ -300,20 +300,7 @@ html {background-color: #FFFFFF; margin: 0; padding: 0; height: 100%;}
   font-size: 14px;
 }
 /* Footer Section */
-    .footer {
-      text-align: center;
-      padding: 10px;
-      background: #003366;
-      color: white;
-      margin-top: auto;
-      
-    }
-
-    .footer a {
-      color: #85B9EB;
-    }
-
-    .footer a:hover {
-      color: #CC0000;
-    }
+   .site-footer{ background:#003366; color:#ffffff; padding:14px 12px; text-align: left }
+.site-footer .footer-inner{ max-width:1100px; margin:0 auto; display:flex; gap:8px; align-items:flex-start; justify-content:center }
+.site-footer .sep{ margin:0 8px; color:rgba(255,255,255,0.5) }
 </style>

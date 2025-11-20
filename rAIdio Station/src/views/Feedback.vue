@@ -177,14 +177,16 @@ function toArray(value) {
       </table>
     </div>
 
-    <!-- FOOTER -->
-    <div class="footer">
-      <p class="lato-regular">
-        <span style="color:#FFFFFF;">© 2025 FAU Engineering rAIdio Station.</span>
-        <a href="/privacy">Privacy Policy</a>
-      </p>
-    </div>
+    
   </main>
+  <!-- FOOTER -->
+     <footer class="site-footer">
+      <div class="footer-inner">
+        <span>© 2025 FAU Engineering rAIdio Station</span>
+        <span class="sep">|</span>
+        <RouterLink to="/privacy">Privacy Policy</RouterLink>
+      </div>
+    </footer>
 </template>
 
 <style scoped>
@@ -404,20 +406,7 @@ button[type="submit"]:hover { filter: brightness(1.05); }
       margin-top: 10px;
     }
 
-    /* Footer Section */
-    .footer {
-      text-align: center;
-      background: #003366;
-      color: white;
-      margin-top: auto;
-      padding: 10px;
-    }
-
-    .footer a {
-      color: #85B9EB;
-    }
-
-    .footer a:hover {
-      color: #CC0000;
-}
+    .site-footer{ background:#003366; color:#ffffff; padding:14px 12px; text-align: left }
+.site-footer .footer-inner{ max-width:1100px; margin:0 auto; display:flex; gap:8px; align-items:flex-start; justify-content:center }
+.site-footer .sep{ margin:0 8px; color:rgba(255,255,255,0.5) }
 </style>
