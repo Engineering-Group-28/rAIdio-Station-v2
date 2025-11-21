@@ -27,7 +27,7 @@ const linkedinShare  = `https://www.linkedin.com/sharing/share-offsite/?url=${pa
                 <p>
                     <span class="itemspace">
                     <span class="open-sans-header">
-                        FAU Engineering
+                        FAU Academic and Campus Life
                     </span><br>
                     Quick updates on research and innovation from Florida Atlantic University<br>
                     Host Alloy takes us through the remarkable research being conducted at FAU.
@@ -70,8 +70,16 @@ const linkedinShare  = `https://www.linkedin.com/sharing/share-offsite/?url=${pa
                         <img src="/general_news_banner.png">
                     </RouterLink>
                 </div>
-                <div class="aditem"></div>
-                <div class="aditem"></div>
+                <div class="aditem">
+                    <RouterLink to="/owlsports">
+                        <img src="/owl_sports_banner.png"></img>
+                    </RouterLink>
+                </div>
+                <div class="aditem">
+                    <RouterLink to="/engineeringradio">
+                        <img src="/engineering_radio_banner.png"></img>
+                    </RouterLink>
+                </div>
                 <div class="aditem"></div>
             </div>
             <div class="grid footer">

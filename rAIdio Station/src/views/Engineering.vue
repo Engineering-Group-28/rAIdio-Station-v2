@@ -66,11 +66,15 @@ const linkedinShare  = `https://www.linkedin.com/sharing/share-offsite/?url=${pa
           </div>
           <div class="grid podcasts">
                 <div class="aditem">
-                    <RouterLink active-class="active" to="/generalnews">
+                    <RouterLink to="/generalnews">
                         <img src="/general_news_banner.png">
                     </RouterLink>
                 </div>
-                <div class="aditem"></div>
+                <div class="aditem">
+                    <RouterLink to="/owlsports">
+                        <img src="/owl_sports_banner.png"></img>
+                    </RouterLink>
+                </div>
                 <div class="aditem"></div>
                 <div class="aditem"></div>
             </div>

@@ -67,8 +67,15 @@ const linkedinShare  = `https://www.linkedin.com/sharing/share-offsite/?url=${pa
           </div>
           <div class="grid podcasts">
                 <div class="aditem">
+                    <RouterLink to="/owlsports">
+                        <img src="/owl_sports_banner.png"></img>
+                    </RouterLink>
                 </div>
-                <div class="aditem"></div>
+                <div class="aditem">
+                    <RouterLink to="/engineering">
+                        <img src="/engineering_radio_banner.png"></img>
+                    </RouterLink>
+                </div>
                 <div class="aditem"></div>
                 <div class="aditem"></div>
           </div>

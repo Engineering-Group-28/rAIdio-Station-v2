@@ -11,23 +11,25 @@
        <p style="color: #67686b;">New episodes covering research, sports, entertainment, and more</p>
   </div>
   <div class="grid podcast1">
-    <RouterLink active-class="active" to="/research">
+    <RouterLink to="/research">
       <img src="/research.png" class="image">
     </RouterLink>
   </div>
   <div class="grid podcast2">
-    <RouterLink active-class="active" to="/playmode">
+    <RouterLink to="/playmode">
       <img src="/playmode.png" class="image">
     </RouterLink>
   </div>
   <div class="grid podcast3">
-    <img src="/archive9.png" class="image">
+    <RouterLink to="/archive9">
+      <img src="/archive9.png" class="image"></img>
+    </RouterLink>
   </div>
   <div class="grid researchinfo">
-    <RouterLink active-class="active" to="/research">
-    <span span style="font-weight: 400; font-size: 0.95rem">
-        FAU Research
-    </span>
+    <RouterLink to="/research">
+      <span span style="font-weight: 400; font-size: 0.95rem">
+          FAU Research
+      </span>
     </RouterLink>
   </div>
   <div class="grid pminfo">
@@ -38,33 +40,47 @@
     </RouterLink>
   </div>
   <div class="grid a9info">
-    <span span style="font-weight: 400; font-size: 0.95rem">
-        Archive 9
-    </span>
+    <RouterLink to="/archive9">
+      <span span style="font-weight: 400; font-size: 0.95rem">
+          Archive 9
+      </span>
+    </RouterLink>
   </div>
   <div class="grid podcast4">
-    <img src="/techdecoded.png" class="image">
+    <RouterLink to="/techdecoded">
+      <img src="/techdecoded.png" class="image"></img>
+    </RouterLink>
   </div>
   <div class="grid podcast5">
-    <img src="/debate_den_2.png" class="image">
+    <RouterLink to="/debateden">
+      <img src="/debate_den_2.png" class="image"></img>
+    </RouterLink>
   </div>
   <div class="grid podcast6">
-    <img src="/friendly_exploits.png" class="image">
+    <RouterLink to="/friendlyexploits">
+      <img src="/friendly_exploits.png" class="image"></img>
+    </RouterLink>
   </div>
   <div class="techdecoded">
-    <span span style="font-weight: 400; font-size: 0.95rem">
-        TechDecoded
-    </span>
+    <RouterLink to="/techdecoded">
+      <span span style="font-weight: 400; font-size: 0.95rem">
+          TechDecoded
+      </span>
+    </RouterLink>
   </div>
     <div class="debateden">
-    <span span style="font-weight: 400; font-size: 0.95rem">
-        Debate Den
-    </span>
+    <RouterLink to="/debateden">
+      <span span style="font-weight: 400; font-size: 0.95rem">
+          Debate Den
+      </span>
+    </RouterLink>
   </div>
     <div class="friendlyexploits">
-    <span span style="font-weight: 400; font-size: 0.95rem">
-        Friendly Exploits
-    </span>
+      <RouterLink to="/friendlyexploits">
+        <span span style="font-weight: 400; font-size: 0.95rem">
+            Friendly Exploits
+        </span>
+      </RouterLink>
   </div>
   <div class="grid slideshow">Slideshow Placeholder</div>
   <div class="grid latest">

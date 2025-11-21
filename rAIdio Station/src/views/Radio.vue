@@ -65,23 +65,31 @@
     </RouterLink>
   </div>
   <div class="grid station4">
-    <img src="/local_news.png" class="image">
+    <RouterLink to="/localnews">
+      <img src="/local_news.png" class="image">
+    </RouterLink>
   </div>
   <div class="grid station5">
-    <img src="/owl_sports_2.png" class="image">
+    <RouterLink to="/owlsports">
+      <img src="/owl_sports.png" class="image">
+    </RouterLink>
   </div>
   <div class="grid station6">
     <img src="/music.png" class="image">
   </div>
     <div class="grid localnews">
-    <span span style="font-weight: 400; font-size: 0.95rem">
-        Local News
-    </span>
+      <RouterLink to="/localnews">
+        <span span style="font-weight: 400; font-size: 0.95rem">
+          Local News
+        </span>
+      </RouterLink>
     </div>
-      <div class="grid owlsports">
-    <span span style="font-weight: 400; font-size: 0.95rem">
-        Owl Sports
-    </span>
+    <div class="grid owlsports">
+      <RouterLink to="/owlsports">
+        <span span style="font-weight: 400; font-size: 0.95rem">
+          Owl Sports
+        </span>
+      </RouterLink>
     </div>
     <div class="grid hiphop">
     <span span style="font-weight: 400; font-size: 0.95rem">
@@ -94,8 +102,12 @@
           <img src="/research_ad.png">
       </RouterLink>
       </div>
-    <div class="ad"><img src="/debate_den.png"></div>
-    <div class="ad"><img src="/owl_sports.png"></div>
+    <div class="ad">
+      <RouterLink to="/playmode">
+        <img src="/playmode_ad.png">
+      </RouterLink>
+    </div>
+    <div class="ad"></div>
   </div>
   <div class="grid latest">
     <span class="open-sans-header">
