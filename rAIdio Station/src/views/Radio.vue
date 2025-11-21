@@ -120,11 +120,6 @@
       Monday, November 17th
     </p>
   </div>
-  <!-- <div class="grid share">
-    <span class="open-sans-header">
-      Share Us
-    </span> -->
-  <!-- </div> -->
         
       </div>
       <!--Audio Source-->

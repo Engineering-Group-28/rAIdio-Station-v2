@@ -101,10 +101,6 @@ const displayName = computed(() => {
           </button>
         </div>
         <div class="player-item"></div>
-        <!-- <img src="/local_news.png"></img>
-          <button @click="togglePlayPause(currentTrack)" class="roundButton">
-            {{ audioPlayer.isPlaying ? '❚❚' : '▶︎' }}
-          </button> -->
       </player>
     </div>
   </main>
