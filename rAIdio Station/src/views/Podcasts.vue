@@ -90,13 +90,16 @@
       Monday, November 17th
     </p>
   </div>
-  <div class="grid footer">
-    <p style="font-size: 0.85rem; color: #67686b;">
-      © 2025 FAU rAIdio Station
-    </p>
-  </div>
+  
 </div>
     </main>
+     <footer class="site-footer">
+      <div class="footer-inner">
+        <span>© 2025 FAU Engineering rAIdio Station</span>
+        <span class="sep">|</span>
+        <RouterLink to="/privacy">Privacy Policy</RouterLink>
+      </div>
+    </footer>
 </template>
 
 <style scoped>
@@ -267,9 +270,7 @@
 
 
 /* Footer */
-.footer {
-  grid-column: 1 / 5;
-  grid-row: 6 / 7;
-  border-top: 2px solid #E0E2E7;
-}
+.site-footer{ background:#003366; color:#ffffff; padding:14px 12px; text-align: left }
+.site-footer .footer-inner{ max-width:1100px; margin:0 auto; display:flex; gap:8px; align-items:flex-start; justify-content:center }
+.site-footer .sep{ margin:0 8px; color:rgba(255,255,255,0.5) }
 </style>

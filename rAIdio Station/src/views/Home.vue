@@ -31,16 +31,14 @@ onMounted(async () => {
   </div>
 </div>
 
-   <!-- Footer -->
-  <div class="footer">
-    <p class="lato-regular"><span style="color: #FFFFFF;">
-      &copy; 2025 FAU Engineering rAIdio Station. All rights reserved. |
-      </span>
-      <a href="privacy.html">Privacy Policy</a></p>
-  </div>
-
-  
     </main>
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <span>© 2025 FAU Engineering rAIdio Station</span>
+        <span class="sep">|</span>
+        <RouterLink to="/privacy">Privacy Policy</RouterLink>
+      </div>
+    </footer>
 </template>
 
 <style scoped>
@@ -281,18 +279,7 @@ html {background-color: #FFFFFF; margin: 0; padding: 0; height: 100%;}
   text-align: center;
 }
 /* Footer Section */
-    .footer {
-      text-align: center;
-      background: #003366;
-      color: white;
-      margin-top: 20px;
-    }
-
-    .footer a {
-      color: #85B9EB;
-    }
-
-    .footer a:hover {
-      color: #CC0000;
-    }
+.site-footer{ background:#003366; color:#ffffff; padding:14px 12px; text-align: left }
+.site-footer .footer-inner{ max-width:1100px; margin:0 auto; display:flex; gap:8px; align-items:flex-start; justify-content:center }
+.site-footer .sep{ margin:0 8px; color:rgba(255,255,255,0.5) }
 </style>
