@@ -16,8 +16,6 @@ const { currentTrack, currentImage, currentName, currentType, currentTitle } = s
 const togglePlayPause = (audioSrc, audioType, audioName) => {
   audioPlayer.togglePlayPause(audioSrc, audioType, audioName);
 };
-  const myImage = document.getElementById("audioPlayerImg"); 
-  // myImage.src = currentImage;
 
 // Load session
 onMounted(async () => {
@@ -107,6 +105,7 @@ const displayName = computed(() => {
 </template>
 
 <style scoped>
+/* Audio player structure */
 player {
   display: flex;
   align-items: center;
@@ -129,6 +128,7 @@ player {
   height: 100%;
 }
 
+/* Display description text in audio player */
 .player text {
   display: flex;
   flex-direction: column;
@@ -137,6 +137,7 @@ player {
   row-gap: 0;
 }
 
+/* Display content image on left side of player */
 .player img {
   height: 100%;
   box-sizing: border-box;
@@ -153,7 +154,6 @@ player {
   justify-content: left;
   margin-left: 0.5rem;
 }
-
 
 .navbar{
   display:flex;
