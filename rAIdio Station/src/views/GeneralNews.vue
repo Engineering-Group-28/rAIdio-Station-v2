@@ -9,6 +9,9 @@
   const togglePlayPause = (audioSrc, audioType, audioName) => {
     audioPlayer.togglePlayPause(audioSrc, audioType, audioName);
 
+audioPlayer.currentTitle = "FAU General News";
+audioPlayer.currentImage = "/general_news.png";
+
 const pageUrl = encodeURIComponent(window.location.href);
 const pageTitle = encodeURIComponent("🎧 Listen to FAU Engineering rAIdio!");
 
@@ -34,8 +37,8 @@ const linkedinShare  = `https://www.linkedin.com/sharing/share-offsite/?url=${pa
                     Host Alloy takes us through the remarkable research being conducted at FAU.
                 </span>
                     <br>
-                     <button @click="togglePlayPause('/FAUEngineeringRadio_Combined.mp3', 'engineering', 'Engineering News Radio')" class="button button1">
-                        {{ audioPlayer.isPlaying && currentTrack == '/FAUEngineeringRadio_Combined.mp3' ? 'Pause' : 'Play' }}
+                     <button @click="togglePlayPause('/FAUGeneralRadio_Combined.mp3', 'engineering', 'FAU General News')" class="button button1">
+                        {{ audioPlayer.isPlaying && currentTrack == '/FAUGeneralRadio_Combined.mp3' ? 'Pause' : 'Play' }}
                     </button>
                     <div class="share-buttons">
                         <a :href="facebookShare" target="_blank" class="share-btn fb">Facebook</a>
